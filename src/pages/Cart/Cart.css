@@ -1,0 +1,177 @@
+.cart_container{
+
+}
+.cart_wrapper{
+ padding: 20px;
+}
+.cart_title{
+ font-weight: 300;
+ text-align: center;
+}
+.top{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding-top: 20px;
+}
+.top_btn{
+cursor: pointer;
+padding: 10px;
+font-weight: 600;
+}
+
+.top_txts{
+
+}
+.top_txt{
+ text-decoration: underline;
+ cursor: pointer;
+ margin: 0px 10px;
+}
+.top_btn{
+
+}
+.bottom{
+    margin-top: 20px;
+ display: flex;
+ justify-content: space-between;
+}
+.product_info{
+ flex:3;
+ 
+}
+.product_summery{
+ flex:1;
+
+}
+.cart_product_wrapper{
+display: flex;
+justify-content: space-between;
+}
+.product_detail{
+flex:2;
+display: flex;
+}
+.pr_img{
+    margin: 10px;
+ width:200px;
+}
+.img_dtl{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.product_name{
+
+}
+.pro_name{
+    font-size: 15px;
+}
+.product_id{
+
+}
+.product_color{
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  background-color: rgb(207, 235, 242);
+}
+.product_size{
+
+}
+.price_detail{
+  flex:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.product_amount_container{
+display: flex;
+align-items: center;
+margin-bottom: 20px;
+}
+.product-amount{
+ font-size: 24px;
+ margin: 5px;
+}
+.product_price{
+ font-size: 30px;
+ font-weight: 200;
+}
+.product_color_jeens{
+    border-radius: 50%;
+    width:20px;
+  height:20px;
+    background-color: rgb(59, 59, 69);
+}
+.product_color_tshirt{
+    border-radius: 50%;
+    width:20px;
+  height:20px;
+    background-color: rgb(12, 10, 10);
+}
+.line{
+    border: none;
+    background-color: #eee;
+    height: 1px;
+}
+.product_summery{
+  flex:1;
+  border:0.5px solid lightgrey;
+  border-radius: 10px;
+  padding: 20px;
+  /* height: 50vh; */
+}
+.summery_title{
+ font-weight: 200;
+}
+.summery_item{
+margin: 30px 0px;
+display: flex;
+justify-content: space-between;
+}
+.summery_item_text{
+
+}
+.summery_item_total{
+ 
+}
+.summery_item .total_amount{
+    font-weight: 500;
+}
+#amount_total{
+    font-weight: 500; 
+}
+.ckout_btn{
+width: 100%;
+padding: 10px;
+background-color: black;
+color: white;
+font-weight: 600;
+cursor: pointer;
+
+}
+
+@media only screen and (max-width: 375px) {
+
+  .cart_wrapper{
+    padding: 10px;
+  }
+  .top_txts{
+    display: none;
+  }
+  .bottom{
+    flex-direction: column;
+  }
+  .cart_product_wrapper{
+    flex-direction: column;
+  }
+  .product-amount{
+    margin: 5px 15px;
+  }
+  .product_price{
+    margin-bottom: 20px;
+  }
+}

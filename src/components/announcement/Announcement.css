@@ -1,0 +1,29 @@
+.announcement-container{
+    height: 30px;
+    color:white;
+    background-color: teal;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+}
+
+/* media query 380 */
+@media only screen and (max-width: 375px){
+    .announcement-container{
+        height: 59px;
+        font-size: 15px; 
+    }
+   
+
+  }
+@media only screen and (max-width: 414px) {
+    /* .announcement-container{
+        height: 50px;
+        font-size: 15px; 
+        width: 95vh;
+    } */
+   
+
+  }

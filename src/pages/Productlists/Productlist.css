@@ -1,0 +1,58 @@
+
+.title{
+margin: 20px;
+
+}
+.filter_container{
+ display: flex;
+ justify-content: space-between;
+}
+.filter{
+margin: 20px;
+}
+.filter_product{
+ font-size: 20px;
+ font-weight: 600;
+ margin-right: 20px;
+}
+.select_colr{
+    margin-right: 20px;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 375px) {
+    .filter{
+        display: flex;
+        flex-direction: column;
+        padding: 0px 9px;
+    }
+    .filter_container{
+        margin-left: 5px;
+       
+    }
+    
+    .filter_product{
+        margin-right: 0px ;
+    }
+    .select_colr{
+        margin-top: 12px;
+    }
+    .title_dress{
+        text-align: center;
+        font-size: xx-large;
+        margin-top: 10px;
+    }
+   
+}
+@media only screen and (max-width: 370px) {
+   .filter_container{
+    margin-left: 0px;
+   }  
+   
+}
+@media only screen and (max-width: 370px) {
+    .select_colr{
+        margin-right: 19px;
+        padding: 4px;
+    }
+}

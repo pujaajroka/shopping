@@ -1,0 +1,63 @@
+.register_container{
+width:100vw;
+height:100vh;
+background:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)) ,
+url("..../../../../../public/asset/reg_bg-img.jpg");
+opacity:0.1px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-size:contain ;
+
+}
+.reg_wrapper{
+ width:40%;
+ padding:20px;
+ background-color: white;
+}
+.register_title{
+  font-size: 24px;
+  font-weight: 300;
+}
+form{
+ display: flex;
+ flex-wrap: wrap;
+}
+.register_container input{
+ flex: 1;
+ min-width: 40%;
+ margin: 20px 10px 0px 0px;
+ padding: 10px;
+}
+.reg_form input{
+  flex: 1;
+ min-width: 94%;
+ margin: 20px 10px 0px 0px;
+ padding: 10px;
+ font-size: 14px;
+}
+.reg_aggrement{
+ font-size: 14px;
+ margin: 20px 0px;
+}
+.reg_btn{
+ border: none;
+ width:40%;
+ padding: 15px 20px;
+ background-color: teal;
+ color: white;
+ cursor: pointer;
+}
+
+@media only screen and (max-width: 375px) {
+  .reg_wrapper{
+      width: 72%;
+  }
+  .register_container input{
+    font-size: 17px;
+  }
+  .reg_aggrement{
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
