@@ -7,7 +7,7 @@ import Newsletter from '../../components/Newsletter/Newsletter';
 import "./Product.css";
 import { useLocation } from 'react-router-dom';
 import { publicRequest } from '../../requestMethod';
-import axios from 'axios';
+
 import { addProduct } from '../../Redux/cartRedux';
 import { useDispatch } from 'react-redux';
 
@@ -18,8 +18,10 @@ const Product = () => {
    const [quantity, setQuantity]= useState(1);
    const [size, setSize] = useState("");
    const [color, setColor] = useState("");
-const dispatch = useDispatch()
+   const dispatch = useDispatch()
 
+
+   
    useEffect(()=>{
     const getPro = async ()=>{
       try{
@@ -30,6 +32,7 @@ const dispatch = useDispatch()
 
       }
     }
+    
     getPro()
    },[id])
  
@@ -43,12 +46,16 @@ const dispatch = useDispatch()
 
    const handleClick =()=>{
     //update our cart
+    // addProduct({product, quantity})
+    // console.log(product)
+    //product:productItm, quantity:quantity, price:productItm.price*quantity
+    //console.log(productItm)
     dispatch(
-      addProduct({Product, quantity})
+      addProduct({...productItm , quantity, color ,size })
     )
    
    }
-
+  
 
   return (
     <div className='product'>

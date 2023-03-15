@@ -10,8 +10,8 @@
     reducers:{
         addProduct:(state,action)=>{
             state.quantity += 1;
-            state.products.push(action.payload.products) //payload is a new product
-            state.total += action.payload.product
+            state.products.push(action.payload) //payload is a new product
+            state.total += action.payload.price * action.payload.quantity;
         }
     }
 

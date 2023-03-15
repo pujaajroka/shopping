@@ -28,13 +28,15 @@ const quantity = useSelector(state => state.cart.quantity);
          <div className='menu-bar'>
            <div className='menu-item'><Link to="/register">REGISTER</Link></div>
            <div className='menu-item'><Link to="/login">LOG-IN</Link></div>
+           <Link to="/cart">
            <div className='menu-item'>
-           <Link to="cart">  
-              <Badge badgeContent={quantity} overlap="rectangular" color="primary">
-                <ShoppingCartOutlined />
-              </Badge>
-           </Link> 
+             
+                <Badge badgeContent={quantity} overlap="rectangular" color="primary">
+                  <ShoppingCartOutlined />
+                </Badge>
+           
             </div> 
+            </Link>
          </div>
         </div>
     </div>
