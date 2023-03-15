@@ -4,10 +4,11 @@ import {
   ShoppingCartOutlined,
 } from "@material-ui/icons";
 import React from "react";
+import { Link } from "react-router-dom";
 import './PopularProduct.css'
 
 const PopularProduct = (props) => {
-  // console.log(props.popularProduct);
+  //  console.log(props.popularProduct);
   const popularData = props.popularProduct;
   
   return (
@@ -18,7 +19,10 @@ const PopularProduct = (props) => {
           <ShoppingCartOutlined />
         </div>
         <div className="icons">
-          <SearchOutlined />
+          <Link to={`/product/${popularData._id}`}>  
+          
+            <SearchOutlined />
+          </Link>
         </div>
         <div className="icons">
           <FavoriteBorderOutlined />

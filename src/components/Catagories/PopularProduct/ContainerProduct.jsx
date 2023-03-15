@@ -1,53 +1,78 @@
-import React from 'react'
-import './PopularProduct.css';
-import { useState } from 'react';
-import { popProduct } from './ContainerProductData';
+import React from "react";
+import "./PopularProduct.css";
+import { useState } from "react";
+import { popProduct } from "./ContainerProductData";
 
-import PopularProduct from './PopularProduct';
-import { useEffect } from 'react';
-import axios from 'axios';
+import PopularProduct from "./PopularProduct";
+import { useEffect } from "react";
+import axios from "axios";
 
+const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
+  // console.log(path,colorSizeFilter,sort)
+  const [poplarProduct, setPopularProduct] = useState(popProduct);
+  const [product, setProducts] = useState([]);
+  const [filterProduct, setFilterProduct] = useState([]);
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await axios.get(
+          path
+            ? `https://sellitwell.herokuapp.com/api/products?catagory=${path}`
+            : "https://sellitwell.herokuapp.com/api/products"
+        );
+        // console.log(res.data);
+        setProducts(res.data);
+      } catch (err) {}
+    };
 
-const ContainerProduct = ({path,colorSizeFilter,sort}) => {
-    console.log(path,colorSizeFilter,sort)
-    const [poplarProduct, setPopularProduct] =useState(popProduct)
-    const [filterPoplarProduct, setFilterPoplarProduct] =  useState([])
-    useEffect(()=>{
-      const getProduct = async()=>{
-        try{
-       const res = await axios.get("http://localhost:8080/product_list");
-       console.log(res)
-        }catch(err){
+    getProduct();
+  }, [path]);
+  useEffect(()=>{
+    path && setFilterProduct(
+       product.filter(item => Object.entries(colorSizeFilter).every(([key,value])=>
+       item[key].includes(value)
+       ))
+    )
+  },[path,colorSizeFilter,product])
 
-        }
-      }
-       
-        getProduct()
-    },[path])
-    return (
-    <div className='popular_product_container'>
-        {poplarProduct.map(item=>{
-        return <PopularProduct key={item.id} popularProduct={item}/>
-            
-       })} 
-       
-    </div>
+  useEffect(()=>{
+   if(sort === "Newest"){
+    setFilterProduct((prev)=>
+     [...prev].sort((a,b)=>
+      a.createdAt - b.createdAt
+     )
+    )
+   } else if(sort === "asc"){
+  setFilterProduct((prev)=>
+    [...prev].sort((a,b)=>
+     a.price - b.price
+    )
   )
-}
+   }else{
+    setFilterProduct((prev)=>
+    [...prev].sort((a,b)=>
+     b.price - a.price
+    )
+  )
+   }
+
+  },[sort])
 
 
 
-// fetch("http://localhost:3000/Users", {
-//     method: "post",
-//     headers: {
-//       Accept: "application/json",
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(obj),
-//   }).then((response) => {
-//     if (response.status === 201) {
-//       window.location.href = "viewUserDetails.html";
-//     }
-//   });
+  return (
+    <div className="popular_product_container">
+      {path ? filterProduct.map((item) => {
+        return <PopularProduct key={item.id} popularProduct={item} />;
+      })
+    : poplarProduct.map((item) => {
+      return <PopularProduct key={item.id} popularProduct={item} />;
+    })
+    }
+    </div>
+  );
+};
 
-export default ContainerProduct
+
+
+export default ContainerProduct;

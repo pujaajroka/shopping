@@ -27,7 +27,7 @@ const Productlist = () => {
     <div className='productlist_container'>
       <Navbar/>
       <Announcement/>
-      <h1 className='title_dress'>Dresses</h1>
+      <h1 className='title_dress'>{path}</h1>
         <div className='filter_container'>
             <div className='filter'>
                 <span className="filter_product">Filter Products:</span>
@@ -38,7 +38,7 @@ const Productlist = () => {
                     <option>Blue</option>
                     <option>Yellow</option>
                     <option>Green</option>
-                    <option>red</option>
+                    <option>Red</option>
                     <option>Pink</option>
                 </select>
                 <select className='select_colr' name="size" onChange={colSizHandle}>
@@ -56,7 +56,7 @@ const Productlist = () => {
                 <select className='select_colr' onChange={(e)=>setSort(e.target.value)}>
                  <option value="newest">Newest</option>
                  <option value="asc">Price (asc)</option>
-                 <option value="dasc">Price (desc)</option>
+                 <option value="dasc">Price (decs)</option>
                 </select>
             </div>
         </div>
