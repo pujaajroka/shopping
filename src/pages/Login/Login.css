@@ -45,6 +45,14 @@
     .reg_btn:hover{
        background-color: rgb(29, 53, 45);
     }
+    .reg_btn:disabled{
+        color: green;
+        cursor: not-allowed;
+    }
+    .error_login{
+        color:red;
+    }
+
     .login_link{
         margin: 10px 0px;
         font-size: 15px;

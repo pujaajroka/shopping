@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Cart = () => {
   const cart = useSelector(state => state.cart);
-console.log(cart)
+// console.log(cart)
   return (
     <div className="cart_container">
       <Navbar />
