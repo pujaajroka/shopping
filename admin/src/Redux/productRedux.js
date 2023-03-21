@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 export const productSlice = createSlice({
     name: "product",
@@ -7,17 +7,17 @@ export const productSlice = createSlice({
        isFetching: false,
        error: false,
     },
-    reducer:{
+    reducers:{
        //GET ALL DATA
-        getProductStart: (state)=>{
+        getProductStart: (state) =>{
             state.isFetching= true;
             state.error= false;
         },  
-        getProductSuccess: (state, action)=>{
+        getProductSuccess: (state, action) =>{
             state.isFetching= false;
             state.products = action.payload;
         },
-        getProductFailure: (state)=>{
+        getProductFailure: (state) => {
             state.isFetching= false;
             state.error= true;
         },
