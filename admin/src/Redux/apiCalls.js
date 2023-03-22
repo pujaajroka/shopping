@@ -72,7 +72,7 @@ export const addProduct = async (product, dispatch) => {
   dispatch(AddProductStart());
   try {
    // it will delete the product if we click 
-   const res = await userRequest.post(`/products`, { product});
+   const res = await userRequest.post(`/products`, product);
    if(res.data) {
     dispatch(AddProductSuccess(res.data));
    }  
