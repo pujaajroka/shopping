@@ -9,6 +9,9 @@
   font-size: 14px;
   color: grey;
 }
+.profile {
+  margin-left: 10px;
+}
 
 .navLeft {
   flex: 1;
