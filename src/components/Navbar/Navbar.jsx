@@ -14,7 +14,7 @@ const quantity = useSelector(state => state.cart.quantity);
   
   return (
     <div className='container'>
-       <div className='nav navLeft'>
+       <div className='nav navLeft'>EN-
          <div className='search-container'>
           <input type="text" className='search-input' placeholder='Search'/>
            <Search/>
@@ -22,7 +22,8 @@ const quantity = useSelector(state => state.cart.quantity);
         
         </div>
        <div className='nav navCenter'>
-         <h1>Let's Shop</h1>
+         <h1 className='xtyle'>XTYLES</h1>
+         
         </div>
        <div className='nav navRight'>
          <div className='menu-bar'>

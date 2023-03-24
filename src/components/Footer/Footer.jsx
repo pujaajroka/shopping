@@ -1,7 +1,7 @@
 import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from '@material-ui/icons'
 import React from 'react'
 import "./Footer.css"
-
+import { Link, Navigate } from 'react-router-dom';  
 const Footer = () => {
   return (
     <div className='footer_container'>
@@ -35,16 +35,17 @@ const Footer = () => {
                 Useful Links
             </h3>
             <ul className='footer_listitem_ul'>
-              <li className='footer_listitem_li'> Home</li>
-              <li className='footer_listitem_li'> Cart</li>
-              <li className='footer_listitem_li'> Men Fashion</li>
-              <li className='footer_listitem_li'> Women Fashion</li>
-              <li className='footer_listitem_li'> Assessories</li>
-              <li className='footer_listitem_li'> My Account</li>
-              <li className='footer_listitem_li'> Order Tracking</li>
-              <li className='footer_listitem_li'> Wishlist</li>
-              <li className='footer_listitem_li'> Terms</li>
-              <li className='footer_listitem_li'> Privacy & Policy</li>
+              <li className='footer_listitem_li'><Link className="link" to="/about"> About </Link> </li>
+              <li className='footer_listitem_li'><Link className="link" to="/cart"> Cart</Link></li>
+              <li className='footer_listitem_li'><Link className="link" to="/men fashion"> Men Fashion</Link></li>
+              <li className='footer_listitem_li'><Link className="link" to="/women fashion"> Women Fashion</Link></li>
+              <li className='footer_listitem_li'><Link className="link" to="/assessories"> Assessories</Link></li>
+              <li className='footer_listitem_li'><Link className="link" to="/myAccouny"> My Account</Link></li>
+              <li className='footer_listitem_li'><Link className="link" to="/order tracking"> Order Tracking</Link></li>
+              <li className='footer_listitem_li'><Link className="link" to="/wishlist"> Wishlist</Link></li>
+              <li className='footer_listitem_li'><Link className="link" to="/terms"> Terms</Link></li>
+             
+              <li className='footer_listitem_li'><Link className="link" to="/privacy&policy"> Privacy & Policy</Link></li>
              
             </ul>
            

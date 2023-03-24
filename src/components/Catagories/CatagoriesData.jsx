@@ -4,20 +4,20 @@ export const CatagoriesData =[
           {
             id: 1,
             img: 'asset/cardigan_2.jpg',
-            tital: 'WINTER IS HERE',
+            tital: 'WOMEN',
             cata: "women"
           },
           {
             id: 2,
             img: 'asset/cardigan_3.jpg',
-            tital: 'WINTER IS HERE',
-            cata: "coat"
+            tital: 'MEN',
+            cata: "men"
           },
           {
             id: 3,
             img: 'asset/jacket_1.jpg',
-            tital: 'WINTER IS HERE',
-            cata: "jeens"
+            tital: 'KIDS',
+            cata: "kids"
           }
       
       

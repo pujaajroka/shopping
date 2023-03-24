@@ -1,0 +1,112 @@
+.checkout_container{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.chkout_banner{
+    
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 10px 20px;
+}
+.chkout_acc{
+    justify-content: space-between; 
+    display: flex;
+    
+}
+.ck_p{
+    padding-top: 10px;
+    padding-right: 5px;
+}
+.checkout_btn{
+    width:90px;
+    border: solid 1px rgb(72, 71, 71);
+}
+.sipp{
+    /* margin: 12px 20px 10px 20px; */
+    height: 50px;
+    margin-top: 10px;
+    background-color: rgb(219, 211, 211);
+    padding-top: 13px;
+    margin-bottom: 10px;
+}
+.sipp_h2{
+    padding-top: 5px;
+    float: left;
+    padding-left:20px;
+    margin-bottom: 5px;
+    
+}
+.sip_add{
+    font-family: fangsong;
+    font-size: 20px;
+}
+#help{
+    height: 17px;
+    width: 1cm;
+  font-size:small;
+
+}
+.shipping_detail{
+   
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: rgba(67, 53, 88, 0.088);
+}
+.sipping_form{
+    margin-top:10px;
+   
+}
+#sippin{
+    margin-top:15px;
+    width:90%;
+    max-width:600px;
+    margin-top: 50px;
+}
+.input_group{
+    margin-bottom: 30px;
+    position: relative;
+}
+input, textarea{
+    width:100%;
+    padding:10px;
+    /* color:#05050545; */
+    outline: 0;
+    border: 1px solid #d4c3c3;
+    font-size: 15px;
+
+}
+label{
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    left:0;
+    top:0px;
+    cursor: text;
+    /* color:#05050545; */
+    transition: 0.2s;
+}
+input:focus~label,
+input:valid~label,
+textarea:focus~label,
+textarea:valid~label
+{
+    top:-35px;
+    font-size: 14px;
+}
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.row .input_group{
+    flex-basis: 48%;
+}
+#btn_sub{
+    width: 50%;
+    margin-left: 25%;
+    height: 40px;
+    margin-bottom:20px;
+    cursor: pointer;
+}

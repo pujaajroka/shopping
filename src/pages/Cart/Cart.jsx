@@ -4,15 +4,18 @@ import Navbar from "../../components/Navbar/Navbar";
 import Announcement from "../../components/announcement/Announcement";
 import Footer from "../../components/Footer/Footer";
 import { Add, Remove } from "@material-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Checkout from "../Checkout/Checkout";
 const Cart = () => {
   const cart = useSelector(state => state.cart);
-// console.log(cart)
+
+
   return (
     <div className="cart_container">
+     <Announcement />
       <Navbar />
-      <Announcement />
+      
       <div className="cart_wrapper">
         <h1 className="cart_title">YOUR BAG</h1>
         <div className="top">
@@ -21,7 +24,7 @@ const Cart = () => {
             <span className="top_txt">Shopping Bag (2)</span>
             <span className="top_txt">Your Wishlist (0)</span>
           </div>
-          <button className="top_btn">CHECKOUT NOW</button>
+          <Link className="top_btn" to={"/checkout"}>CHECKOUT NOW</Link>
         </div>
         <div className="bottom">
           <div className="product_info">
@@ -78,7 +81,7 @@ const Cart = () => {
               <h3 className="summery_item_text">Total</h3>
               <h3 className="summery_item_total grand_total">Rs.{cart.total}</h3>
             </div>
-            <button className="ckout_btn">CHECKOUT NOW</button>
+            <Link className="ckout_btn" to={"/checkout"}>CHECKOUT NOW</Link>
           </div>
         </div>
       </div>
