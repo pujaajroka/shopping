@@ -17,33 +17,6 @@ const Navbar = () => {
 
   return (
     <div className='container'>
-<<<<<<< HEAD
-       <div className='nav navLeft'>EN-
-         <div className='search-container'>
-          <input type="text" className='search-input' placeholder='Search'/>
-           <Search/>
-         </div>
-        
-        </div>
-       <div className='nav navCenter'>
-         <h1 className='xtyle'>XTYLES</h1>
-         
-        </div>
-       <div className='nav navRight'>
-         <div className='menu-bar'>
-           <div className='menu-item'><Link to="/register">REGISTER</Link></div>
-           <div className='menu-item'><Link to="/login">LOG-IN</Link></div>
-           <Link to="/cart">
-           <div className='menu-item'>
-             
-                <Badge badgeContent={quantity} overlap="rectangular" color="primary">
-                  <ShoppingCartOutlined />
-                </Badge>
-           
-            </div> 
-            </Link>
-         </div>
-=======
       <div className='nav navLeft'>
         <div className='search-container'>
           <input type="text" className='search-input' placeholder='Search' />
@@ -52,7 +25,7 @@ const Navbar = () => {
 
       </div>
       <div className='nav navCenter'>
-        <h1>Let's Shop</h1>
+        <img src="/asset/logo.png"/>
       </div>
       <div className='nav navRight'>
         <div className='menu-bar'>
@@ -75,7 +48,6 @@ const Navbar = () => {
           { user && user.currentUser !== null ? 
            <div className="profile">Hello, {user.username.toUpperCase()}</div>:'' 
           }
->>>>>>> 3ebeee45d0f653e3781ef08273c38f550ca37fea
         </div>
       </div>
     </div>
