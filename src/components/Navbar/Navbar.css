@@ -13,6 +13,7 @@
   font-weight:600;
  
 }
+<<<<<<< HEAD
  .xtyle{
   font-size: 20px;
   font-family: 'MemphisRiver';
@@ -24,6 +25,11 @@
    -webkit-background-clip: text;
    background-position: 0 0;
    animation: back 20s linear infinite;
+=======
+.profile {
+  margin-left: 10px;
+}
+>>>>>>> 3ebeee45d0f653e3781ef08273c38f550ca37fea
 
 }
 @keyframes back{
