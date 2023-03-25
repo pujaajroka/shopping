@@ -17,9 +17,8 @@ import "./App.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { Navigate } from 'react-router-dom';                                                                                                                                                                                                                                                                                         
-import About from "./components/Footer/About";
-import PrivacyPolicy from "./components/Footer/PrivacyPolicy";
-import FooterCart from "./components/Footer/FooterCart";
+import About from "./pages/about/About";
+import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
 import Checkout from "./pages/Checkout/Checkout";
 
 const App = () => {
@@ -34,8 +33,8 @@ const App = () => {
       <Route path="/login" element= { user ? <Navigate to="/"/> : <Login/> }/>
       <Route path="/register" element= { user ? <Navigate to="/"/> : <Register/> }/>
       <Route path="/about" element={<About />} />
-      <Route path="/privacy&policy" element={<PrivacyPolicy />} />
-      <Route path="/cart" element={<FooterCart />} />
+      <Route path="/privacy_policy" element={<PrivacyPolicy />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
       {/* <Route path="/login" element={<Login />} /> */}
       {/* <Route path="/register" element={<Register />} /> */}

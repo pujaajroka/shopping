@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
-import Footer from "./Footer";
-import "./Footer.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
+
 const PrivacyPolicy = () => {
   return (
     <div className="peiv_container">
