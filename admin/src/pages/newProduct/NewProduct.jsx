@@ -18,12 +18,17 @@ export default function NewProduct() {
   const productDesc = useRef();
   const productCategories = useRef();
   const productPrice = useRef();
+  const productMRP = useRef();
   const productIfFeature = useRef();
+  const productColor = useRef();
   const [input, setInput] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
+  const [color, setColor] = useState([]);
+  const [size, setSize] = useState([]);
   const [feature, setFeature] = useState(false);
   const [isFormHasError, setIsFormHasError] = useState(false);
+  const [priceError, setPriceError] = useState(false);
   const [isNewProductAdded, setNewProductAdded] = useState(false);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
@@ -40,8 +45,21 @@ export default function NewProduct() {
         setFeature(e.target.checked)
   }
 
+  const handleSize = (e) => {
+    if(e.target.checked) {
+       size.push(e.target.value)
+       setSize(size);
+    } else {
+      const items =  size.filter(t=> t !== e.target.value);
+      setSize(items);
+    }
+  };
+
   const handleCat = (e) => {
     setCat(e.target.value.split(","));
+  };
+  const handleColor = (e) => {
+    setColor(e.target.value.split(","));
   };
   const resetProductForm = () => {
         fileType.current.value = "";
@@ -49,7 +67,9 @@ export default function NewProduct() {
         productDesc.current.value = "";
         productName.current.value = "";
         productPrice.current.value = "";
-        productIfFeature.current.value = ""
+        productIfFeature.current.value = "";
+        productColor.current.value = "";
+        productMRP.current.value = "";
   }
   const validateForm = () => {
       let error = false;
@@ -64,7 +84,19 @@ export default function NewProduct() {
             input.classList.remove('error');
           }
       });
+
+      if (productMRP.current.value >=  productPrice.current.value) {
+        error = true; 
+        setPriceError(true)
+      } else {
+        setPriceError(false)
+      }
+
+     
       return error;
+  }
+  const handleMRPChange = () => {
+
   }
   const handleClick = (e) => {
     e.preventDefault();
@@ -108,7 +140,7 @@ export default function NewProduct() {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const product = { ...input, img: downloadURL, categories: cat, feature: feature };
+          const product = { ...input, img: downloadURL, categories: cat, feature: feature, color: color, size: size };
             addProduct(product, dispatch);     
             if(products && !isProductAddFail){   
               setNewProductAdded(true);              
@@ -164,7 +196,18 @@ export default function NewProduct() {
           />
         </div>
         <div className="addProductItem">
-          <label>Price</label>
+          <label>MRP</label>
+          <input
+            name="mrp"
+            type="number"
+            className="required"
+            placeholder="100"
+            ref={productMRP}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="addProductItem">
+          <label>Sell Price</label>
           <input
             name="price"
             type="number"
@@ -173,10 +216,29 @@ export default function NewProduct() {
             ref={productPrice}
             onChange={handleChange}
           />
+         {priceError ? <p className="error">Selling price should be less than the MRP </p> : ''} 
         </div>
         <div className="addProductItem">
           <label>Catagories</label>
           <input type="text" placeholder="jeans, skirt"  className="required" ref={productCategories} onChange={handleCat} />
+        </div>
+
+        <div className="addProductItem">
+          <label>Color</label>
+          <input type="text" placeholder="Red, white"  className="required" ref={productColor} onChange={handleColor} />
+        </div>
+
+        <div className="addProductItem">
+            <label>Size</label>
+            <div  className="checkbox-group">
+                <div><input type="checkbox" name="size" onChange={handleSize}  value="XS" /> XS</div>
+                <div><input type="checkbox" name="size"  onChange={handleSize} value="S" /> S</div>
+                <div> <input type="checkbox" name="size" onChange={handleSize} value="M" /> M</div>
+                <div> <input type="checkbox" name="size" onChange={handleSize}  value="L" /> L</div>
+                <div> <input type="checkbox" name="size"  onChange={handleSize} value="XL" /> XL</div>
+                <div> <input type="checkbox" name="size"  onChange={handleSize} value="XXL" /> XXL</div>
+            </div>
+          
         </div>
         
         <div className="addProductItem">

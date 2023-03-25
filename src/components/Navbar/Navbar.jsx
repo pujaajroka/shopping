@@ -2,31 +2,35 @@ import { Badge } from '@material-ui/core';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import React from 'react';
 import './Navbar.css';
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate} from "react-router-dom";
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useEffect } from 'react';
+
 
 
 
 const Navbar = () => {
-  const user = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser;
+  const [user, setUser] = useState(null);
+  const isLocalStorage = localStorage.getItem("persist:root"); 
   const quantity = useSelector(state => state.cart.quantity);
+
   const handleLogout = () => {
-    localStorage.removeItem("persist:root");
-    <Navigate to="/login"/> 
+     localStorage.removeItem("persist:root");          
   }
- const handleClick_logo=(e)=>{
- // alert("hi");
-    e.preventDefault();
-   <Navigate to="/"/> 
- }
+
+  useEffect(() =>{
+    if(isLocalStorage) {
+      setUser(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser);
+     }
+  },[isLocalStorage])
+
   return (
     <div className='container'>
       <div className='nav navLeft'>
-       
-        <Link to="/home">
-          <img src="/asset/logo.png"/> 
-        </Link>
-       
+
+        <Link to="/"> <img src="/asset/logo.png"/></Link>
+         
 
       </div>
       <div className='nav navCenter'>
@@ -38,11 +42,16 @@ const Navbar = () => {
       </div>
       <div className='nav navRight'>
         <div className='menu-bar'>
-          <div className='menu-item'><Link to="/register">REGISTER</Link></div>
-          {user && user.currentUser ? 
-            <div className='menu-item'><Link onClick={handleLogout}>LOG-OUT</Link></div>
+         
+          {user && user.currentUser !== '' ?        
+            
+            <div className='menu-item'><Link to="/login" onClick={handleLogout}>LOG-OUT</Link></div>        
             :
+            <>
+            <div className='menu-item'><Link to="/register">REGISTER</Link></div>
             <div className='menu-item'><Link to="/login">LOG-IN</Link></div>
+            </>
+           
           }
           
           <Link to="/cart">

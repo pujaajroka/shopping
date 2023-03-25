@@ -24,9 +24,7 @@ const Footer = () => {
           XTYLES is a global online retail company that delivers products
           directly to consumers. Founded in 2018, XTYLES has offered customers a
           convenient way to shop for a wide selection of lifestyle products at
-          attractive prices through www.xtyles.in, and other websites, The
-          application has been built in Framwork using React Js, Express, Mondo
-          DB and Node js
+          attractive prices through www.xtyles.in
         </p>
 
         <div className="social_content">
@@ -111,9 +109,9 @@ const Footer = () => {
           9867969377
         </div>
         <div className="contact_item">
-          <MailOutline className="room" /> <a href="/" className="mail_office">support@xtyles.in </a> _/_<a href="#" className="mail_office">sales@xtyles.in </a>{" "}
+          <MailOutline className="room" /> <a href="/" className="mail_office">support@xtyles.in </a> | <a href="#" className="mail_office">sales@xtyles.in </a>{" "}
         </div>
-        <img className="payment" src="asset/card.jpg" />
+        <img className="payment" src="/asset/card.jpg" />
       </div>
     </div>
   );

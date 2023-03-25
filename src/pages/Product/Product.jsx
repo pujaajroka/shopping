@@ -45,11 +45,6 @@ const Product = () => {
    }
 
    const handleClick =()=>{
-    //update our cart
-    // addProduct({product, quantity})
-    // console.log(product)
-    //product:productItm, quantity:quantity, price:productItm.price*quantity
-    //console.log(productItm)
     dispatch(
       addProduct({...productItm , quantity, color ,size })
     )
@@ -69,18 +64,17 @@ const Product = () => {
             <h1 className='ttl'> {productItm.title}</h1>
             <p className='des'> {productItm.desc}
             </p>
-            <span className='price'> {productItm.price}</span>
+            <span className='price'>₹ <strong> {productItm.price} </strong> <small> {productItm.mrp}</small></span>
             <div className='filter_cnt'>
-               <div className='filter_col'> Color:</div>
-              
+               <div className='filter_col'> Color: &nbsp;             
                   <select className='slct' onChange={(e)=>setColor(e.target.value)}>
                   {productItm.color?.map((c)=>(
                      <option key={c}>{c}</option>
                   ))}
                     
                  </select>
-               
-               <div className='filter_sz'> Size:
+                 </div> 
+               <div className='filter_sz'> Size: &nbsp;
                 <select className='slct' onChange={(e)=>setSize(e.target.value)}>
                   {productItm.size?.map((s)=>(
                      <option key={s}>{s}</option>

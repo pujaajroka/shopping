@@ -12,7 +12,6 @@ import Register from "./pages/Register/Register";
 import Home from "./pages/Home";
 import { useState } from "react";
 import { useEffect } from "react";
-import PacmanLoader from "react-spinners/PacmanLoader";
 import "./App.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -22,7 +21,13 @@ import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
 import Checkout from "./pages/Checkout/Checkout";
 
 const App = () => {
-  const user = useSelector((state) => state.user.currentUser)
+  const [user, setUser] = useState(null);
+  const isLocalStorage = localStorage.getItem("persist:root"); 
+  useEffect(() =>{
+    if(isLocalStorage) {
+      setUser(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser);
+     }
+  },[isLocalStorage])
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -36,8 +41,6 @@ const App = () => {
       <Route path="/privacy_policy" element={<PrivacyPolicy />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
-      {/* <Route path="/login" element={<Login />} /> */}
-      {/* <Route path="/register" element={<Register />} /> */}
     </Routes>
   );
 };

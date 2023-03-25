@@ -9,6 +9,21 @@
    padding: 15px;
    margin: 10px 0;
 }
+p.error {
+  color: red;
+  font-size: 13px;
+}
+.checkbox-group {
+  display: flex;
+  width: 120%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+}
+.checkbox-group input {
+  position: relative;
+  top:2px;
+}
 .banner.success {
     background-color: rgb(184, 253, 203);
     border: solid 1px #22fb4d;

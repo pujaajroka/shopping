@@ -17,7 +17,8 @@
     padding: 0px 50px;
 }
 .ttl{
-font-weight: 200;
+  font-weight: 200;
+  text-transform: capitalize;
 }
 .des{
 margin: 20px 0px;
@@ -34,9 +35,11 @@ font-size: 40px;
     
 }
 .slct{
-    border-radius: 7%;
+    border-radius: 5%;
     border: 1px solid grey;
     cursor: pointer;
+    padding: 3px;
+    text-transform: capitalize;
 }
 .filter_col{
     display: flex;
@@ -56,7 +59,7 @@ font-size: 40px;
 .remove_container{
  height: 30px;
  width:30px ;
- border-radius: 10px;
+ border-radius: 2px;
  border: 1px solid teal;
  margin: 0px 5px;
  display: flex;

@@ -10,6 +10,7 @@ export default function Product() {
     const productId = location.pathname.split("/")[2];
     const product = useSelector((state)=>
      state.product.products.find((product)=> product._id === productId))
+     console.log(product)
   return (
     <div className="product">
       <div className="productTitleContainer">

@@ -39,6 +39,11 @@
 }
 .search-input {
   border: none;
+  width: 100%;
+}
+.search-input:focus-visible {
+  border: none;
+  outline: none;
 }
 .navCenter {
   flex: 1;

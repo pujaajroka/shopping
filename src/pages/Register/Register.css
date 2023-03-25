@@ -7,7 +7,7 @@ opacity:0.1px;
 display: flex;
 align-items: center;
 justify-content: center;
-background-size:contain ;
+background-size: cover ;
 
 }
 .reg_wrapper{
