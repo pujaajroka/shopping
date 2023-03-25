@@ -18,14 +18,15 @@ const Navbar = () => {
   return (
     <div className='container'>
       <div className='nav navLeft'>
-        <div className='search-container'>
-          <input type="text" className='search-input' placeholder='Search' />
-          <Search />
-        </div>
+      <img src="/asset/logo.png"/>
 
       </div>
       <div className='nav navCenter'>
-        <img src="/asset/logo.png"/>
+      <div className='search-container'>
+          <input type="text" className='search-input' placeholder='Search' />
+          <Search />
+        </div>
+        
       </div>
       <div className='nav navRight'>
         <div className='menu-bar'>
