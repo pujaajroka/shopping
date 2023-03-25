@@ -14,11 +14,19 @@ const Navbar = () => {
     localStorage.removeItem("persist:root");
     <Navigate to="/login"/> 
   }
-
+ const handleClick_logo=(e)=>{
+ // alert("hi");
+    e.preventDefault();
+   <Navigate to="/"/> 
+ }
   return (
     <div className='container'>
       <div className='nav navLeft'>
-      <img src="/asset/logo.png"/>
+       
+        <Link to="/home">
+          <img src="/asset/logo.png"/> 
+        </Link>
+       
 
       </div>
       <div className='nav navCenter'>

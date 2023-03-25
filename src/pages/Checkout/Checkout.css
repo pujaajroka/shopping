@@ -39,6 +39,8 @@
 .sip_add{
     font-family: fangsong;
     font-size: 20px;
+    text-align: center;
+    margin-bottom:5px;
 }
 #help{
     height: 17px;
@@ -109,4 +111,11 @@ textarea:valid~label
     height: 40px;
     margin-bottom:20px;
     cursor: pointer;
+}
+.slect_state{
+    height: 40px;
+    width: 108%;
+    outline: 0;
+    border: 1px solid #d4c3c3;
+    font-size: 15px;
 }

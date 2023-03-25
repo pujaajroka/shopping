@@ -3,6 +3,10 @@ import React from "react";
 import "./Checkout.css";
 import Footer from "../../components/Footer/Footer";
 const Checkout = () => {
+  
+
+
+
   return (
     <div className="checkout_container">
       <div className="chkout_banner">
@@ -16,7 +20,7 @@ const Checkout = () => {
         <h2 className="sipp_h2">SIPPING</h2>
       </div>
       <h3 className="sip_add">
-        SIPPING ADDRESS <HelpOutline id="help" />
+        Delivery Address <HelpOutline id="help" />
       </h3>
 
       <div className="shipping_detail">
@@ -56,7 +60,7 @@ const Checkout = () => {
           
             </div>
             <div className="input_group">
-                <select>
+                <select class="slect_state">
                 <option value="">Select State</option>
                 <option value="AN">Andaman and Nicobar Islands</option>
                 <option value="AP">Andhra Pradesh</option>
