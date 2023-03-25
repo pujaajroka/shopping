@@ -9,17 +9,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../Redux/apiCalls";
 
 export default function ProductList() {
- 
+
   const dispatch = useDispatch();
- //display all items from api to ui !
+  //display all items from api to ui !
   const products = useSelector((state) => state.product.products)
-  useEffect( ()=>{
+  useEffect(() => {
     setTimeout(() => {
       getProducts(dispatch)
     }, 100);
-   
 
-  },[dispatch]);
+
+  }, [dispatch]);
 
 
   const handleDelete = (id) => {
@@ -41,8 +41,26 @@ export default function ProductList() {
         );
       },
     },
-    { field: "inStock", headerName: "Stock", width: 220 },
-   
+    {
+      field: "inStock", headerName: "Stock", width: 220,
+      renderCell: (params) => {
+        return (
+          <>
+            {params.row.inStock ? 'Yes' : 'No'}
+          </>
+        );
+      },
+    },
+    {
+      field: "feature", headerName: "Feature Product", width: 220,
+      renderCell: (params) => {
+        return (
+          <>
+            {params.row.feature ? 'Yes' : 'No'}
+          </>
+        );
+      },
+    },
     {
       field: "price",
       headerName: "Price",
@@ -69,15 +87,19 @@ export default function ProductList() {
   ];
 
   return (
-    <div className="productList">
-      <DataGrid
-        rows={products}
-        disableSelectionOnClick
-        columns={columns}
-        getRowId = {(row)=> row._id}
-        pageSize={8}
-        checkboxSelection
-      />
-    </div>
+    <>
+      <div className="productList">
+        <button className="add-product-btn"><Link to={'/newProduct'}>Add New Product</Link></button>
+        <DataGrid
+          rows={products}
+          disableSelectionOnClick
+          columns={columns}
+          getRowId={(row) => row._id}
+          pageSize={8}
+          checkboxSelection
+        />
+
+      </div>
+    </>
   );
 }

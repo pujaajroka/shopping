@@ -9,9 +9,18 @@ import axios from "axios";
 
 const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
   // console.log(path,colorSizeFilter,sort)
-  const [poplarProduct, setPopularProduct] = useState(popProduct);
+  const [poplarProduct, setPopularProduct] = useState([]);
   const [product, setProducts] = useState([]);
   const [filterProduct, setFilterProduct] = useState([]);
+
+  const getFeatureProduct = async () => {
+    try {
+      const res = await axios.get('https://sellitwell.herokuapp.com/api/products?feature=true');
+      // console.log(res.data);
+      setPopularProduct(res.data);
+    } catch (err) {}
+  };
+
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -24,9 +33,11 @@ const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
         setProducts(res.data);
       } catch (err) {}
     };
-
+    getFeatureProduct();
     getProduct();
   }, [path]);
+
+
   useEffect(()=>{
     path && setFilterProduct(
        product.filter(item => Object.entries(colorSizeFilter).every(([key,value])=>

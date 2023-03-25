@@ -8,18 +8,28 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import { addProduct } from "../../Redux/apiCalls";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector  } from "react-redux";
+import Spinner from "../../components/spinner/spinner";
+
 export default function NewProduct() {
   const [input, setInput] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
+  const [feature, setFeature] = useState(false);
+  const [isNewProductAdded, setNewProductAdded] = useState(false);
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.product.products);
+  const isProductAddFail = useSelector((state) => state.product.error)
 
   const handleChange = (e) => {
     setInput((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
+
+  const handleFeature = (e) => {
+        setFeature(e.target.checked)
+  }
 
   const handleCat = (e) => {
     setCat(e.target.value.split(","));
@@ -62,8 +72,20 @@ export default function NewProduct() {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          const product = { ...input, img: downloadURL, categories: cat };
-          addProduct(product, dispatch);
+          const product = { ...input, img: downloadURL, categories: cat, feature: feature };
+            addProduct(product, dispatch);     
+            if(products && !isProductAddFail){
+                  setNewProductAdded(true);
+                  const inputs = document.querySelectorAll('.addProductItem');
+                  inputs.forEach(t=> {
+                    t.querySelector('input[type=text]').value = "";
+                  })
+                  setTimeout(() => {
+                    setNewProductAdded(false);
+                  }, 3000);
+            } else {
+              setNewProductAdded(false)
+            }
         });
       }
     );
@@ -72,6 +94,7 @@ export default function NewProduct() {
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">New Product</h1>
+      {isNewProductAdded ? <p className="banner success"> Product added successfully!</p> : ''}
       <form className="addProductForm">
         <div className="addProductItem">
           <label>Image</label>
@@ -81,12 +104,13 @@ export default function NewProduct() {
             onChange={(e) => setFile(e.target.files[0])}
           />
         </div>
+       
         <div className="addProductItem">
           <label>Title</label>
           <input
             name="title"
             type="text"
-            placeholder="Apple Airpods"
+            placeholder="Women Tshirt"
             onChange={handleChange}
           />
         </div>
@@ -112,6 +136,7 @@ export default function NewProduct() {
           <label>Catagories</label>
           <input type="text" placeholder="jeans, skirt" onChange={handleCat} />
         </div>
+        
         <div className="addProductItem">
           <label>Stock</label>
           <select name="isStock" onChange={handleChange}>
@@ -120,10 +145,16 @@ export default function NewProduct() {
           </select>
         </div>
 
+        <div className="addProductItem">
+          <br/>
+           <div><input type="checkbox" onChange={handleFeature} />  &nbsp; Feature product </div>
+        </div>
+
         <button onClick={handleClick} className="addProductButton">
           Create
         </button>
       </form>
+      {/* <Spinner/> */}
     </div>
   );
 }

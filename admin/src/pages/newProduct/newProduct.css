@@ -5,7 +5,14 @@
 .addProductForm {
   margin-top: 10px;
 }
-
+.banner {
+   padding: 15px;
+   margin: 10px 0;
+}
+.banner.success {
+    background-color: rgb(184, 253, 203);
+    border: solid 1px #22fb4d;
+}
 .addProductItem {
   width: 250px;
   display: flex;
