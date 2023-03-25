@@ -7,9 +7,12 @@ import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct, getProducts } from "../../Redux/apiCalls";
+import Modal from "../../components/popup/modal";
+import { useState } from "react";
 
 export default function ProductList() {
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [_id, setId] = useState(0);
   const dispatch = useDispatch();
   //display all items from api to ui !
   const products = useSelector((state) => state.product.products)
@@ -21,9 +24,19 @@ export default function ProductList() {
 
   }, [dispatch]);
 
+  const handleCancelEvent = () => {
+    setId(0);
+    setIsModalOpen(false)
+  }
+  const handleDeleteEvent = () => {
+    deleteProduct(_id, dispatch);
+    setIsModalOpen(false);
+  }
 
   const handleDelete = (id) => {
-    deleteProduct(id, dispatch);
+      setId(id);
+      setIsModalOpen(true);
+       
   };
 
   const columns = [
@@ -98,7 +111,8 @@ export default function ProductList() {
           pageSize={8}
           checkboxSelection
         />
-
+        {isModalOpen ?  <Modal handleCancelEvent={handleCancelEvent} handleDeleteEvent={handleDeleteEvent} /> : ''}
+       
       </div>
     </>
   );

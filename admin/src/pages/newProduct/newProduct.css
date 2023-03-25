@@ -13,6 +13,13 @@
     background-color: rgb(184, 253, 203);
     border: solid 1px #22fb4d;
 }
+.required.error {
+    border: solid 1px red;
+}
+.banner.error {
+  background-color: rgb(228 168 168);
+  border: solid 1px #ff0000;
+}
 .addProductItem {
   width: 250px;
   display: flex;
@@ -36,9 +43,9 @@
 
 .addProductButton {
   margin-top: 10px;
-  padding: 7px 10px;
+  padding: 10px 15px;
   border: none;
-  border-radius: 10px;
+  border-radius: 4px;
   background-color: darkblue;
   color: white;
   font-weight: 600;

@@ -10,16 +10,25 @@ import app from "../../firebase";
 import { addProduct } from "../../Redux/apiCalls";
 import { useDispatch, useSelector  } from "react-redux";
 import Spinner from "../../components/spinner/spinner";
+import { useRef } from "react";
 
 export default function NewProduct() {
+  const fileType = useRef();
+  const productName = useRef();
+  const productDesc = useRef();
+  const productCategories = useRef();
+  const productPrice = useRef();
+  const productIfFeature = useRef();
   const [input, setInput] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
   const [feature, setFeature] = useState(false);
+  const [isFormHasError, setIsFormHasError] = useState(false);
   const [isNewProductAdded, setNewProductAdded] = useState(false);
   const dispatch = useDispatch();
   const products = useSelector((state) => state.product.products);
-  const isProductAddFail = useSelector((state) => state.product.error)
+  const isProductAddFail = useSelector((state) => state.product.error);
+  const isFetching = useSelector((state) => state.product.isFetching)
 
   const handleChange = (e) => {
     setInput((prev) => {
@@ -34,8 +43,35 @@ export default function NewProduct() {
   const handleCat = (e) => {
     setCat(e.target.value.split(","));
   };
+  const resetProductForm = () => {
+        fileType.current.value = "";
+        productCategories.current.value = "";
+        productDesc.current.value = "";
+        productName.current.value = "";
+        productPrice.current.value = "";
+        productIfFeature.current.value = ""
+  }
+  const validateForm = () => {
+      let error = false;
+      const elem = document.querySelectorAll('.required');
+      setIsFormHasError(false)
+      elem.forEach(input => {
+          if(input.value === ''){
+            error = true; 
+            input.classList.add('error');
+            setIsFormHasError(true)
+          } else {
+            input.classList.remove('error');
+          }
+      });
+      return error;
+  }
   const handleClick = (e) => {
     e.preventDefault();
+    if(validateForm()) {
+        return false;
+    }
+   
     //we will upload file and call api
     const fileName = new Date().getTime() + file.name;
     const storage = getStorage(app);
@@ -74,12 +110,9 @@ export default function NewProduct() {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           const product = { ...input, img: downloadURL, categories: cat, feature: feature };
             addProduct(product, dispatch);     
-            if(products && !isProductAddFail){
-                  setNewProductAdded(true);
-                  const inputs = document.querySelectorAll('.addProductItem');
-                  inputs.forEach(t=> {
-                    t.querySelector('input[type=text]').value = "";
-                  })
+            if(products && !isProductAddFail){   
+              setNewProductAdded(true);              
+                  resetProductForm();
                   setTimeout(() => {
                     setNewProductAdded(false);
                   }, 3000);
@@ -93,14 +126,17 @@ export default function NewProduct() {
 
   return (
     <div className="newProduct">
-      <h1 className="addProductTitle">New Product</h1>
+      <h1 className="addProductTitle">Add New Product</h1>
       {isNewProductAdded ? <p className="banner success"> Product added successfully!</p> : ''}
+      {isFormHasError ?  <p className="banner error"> Please fill all required fields</p> : ''}
       <form className="addProductForm">
         <div className="addProductItem">
-          <label>Image</label>
+          <label>Product Image</label>
           <input
             type="file"
             id="file"
+            ref={fileType}
+            className="required"
             onChange={(e) => setFile(e.target.files[0])}
           />
         </div>
@@ -110,6 +146,8 @@ export default function NewProduct() {
           <input
             name="title"
             type="text"
+            ref={productName}
+            className="required"
             placeholder="Women Tshirt"
             onChange={handleChange}
           />
@@ -119,7 +157,9 @@ export default function NewProduct() {
           <input
             name="desc"
             type="text"
+            className="required"
             placeholder="Description.."
+            ref={productDesc}
             onChange={handleChange}
           />
         </div>
@@ -128,13 +168,15 @@ export default function NewProduct() {
           <input
             name="price"
             type="number"
+            className="required"
             placeholder="100"
+            ref={productPrice}
             onChange={handleChange}
           />
         </div>
         <div className="addProductItem">
           <label>Catagories</label>
-          <input type="text" placeholder="jeans, skirt" onChange={handleCat} />
+          <input type="text" placeholder="jeans, skirt"  className="required" ref={productCategories} onChange={handleCat} />
         </div>
         
         <div className="addProductItem">
@@ -147,14 +189,17 @@ export default function NewProduct() {
 
         <div className="addProductItem">
           <br/>
-           <div><input type="checkbox" onChange={handleFeature} />  &nbsp; Feature product </div>
+           <div><input type="checkbox"  ref={productIfFeature} onChange={handleFeature} />  &nbsp; Feature product </div>
         </div>
 
         <button onClick={handleClick} className="addProductButton">
           Create
         </button>
       </form>
-      {/* <Spinner/> */}
+      { isFetching ? 
+           <Spinner/> : ''
+      }
+     
     </div>
   );
 }

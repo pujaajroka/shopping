@@ -8,7 +8,7 @@ export default function Spinner() {
         <>
          <div className="overlay">
                 <div className='spinner'>
-                    <img src='asset/ajax.gif' />
+                <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
                 </div>
 
          </div>
