@@ -161,6 +161,9 @@
     right: 20px;
     z-index: 100;
   }
+  .cart-mobile-view a {
+    color: #333
+  }
   .nav.navRight .menu-bar .cart-icon {
       display: none;
   } 

@@ -31,6 +31,7 @@
     height: 100%;
     display: flex;
     transition: all linear 500ms;
+    align-items: center;
 }
 .arrow-wrapper.slide-0 {
     transform: translateX(0);
@@ -52,7 +53,6 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    max-height: 460px;
 }
  .slide1{
     background-color: #f5fafd;
