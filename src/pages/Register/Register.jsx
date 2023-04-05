@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Register.css";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { publicRequest } from "../../requestMethod";
 
 const Register = () => {
@@ -240,10 +240,16 @@ const Register = () => {
           </div>
           <div className="err_box"></div>
           <span className="reg_aggrement">
-            By creating an accoount, I consent to the processing of my personal
+            By creating an account, I consent to the processing of my personal
             data in accordance with the <h3>PRIVACY POLICY</h3>
           </span>
-          <button className="reg_btn">Create</button>
+          <div className="btns">
+            <button className="reg_btn">Create</button>
+            <button className="reg_btn" type="btn">
+              <Link to={"/"}>Guest Login</Link>
+            </button>
+          </div>
+          
         </form>
       </div>
     </div>

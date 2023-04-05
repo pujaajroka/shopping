@@ -21,21 +21,27 @@ import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
 import Checkout from "./pages/Checkout/Checkout";
 import MyAccount from "./pages/account/MyAccount";
 import Terms from "./pages/terms/Terms";
+import { useLocation } from 'react-router-dom';
+
 
 const App = () => {
   const [user, setUser] = useState(null);
-  const isLocalStorage = localStorage.getItem("persist:root"); 
+  let isLocalStorage = localStorage.getItem("persist:root"); 
+  const location = useLocation();
   useEffect(() =>{
+    isLocalStorage = localStorage.getItem("persist:root"); 
     if(isLocalStorage) {
-      setUser(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser);
+        setUser(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser);
      }
-  },[isLocalStorage])
+  },[isLocalStorage, location]);
+ 
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/product/:id" element={<Product />} />
+      <Route path="/productlist/" element={<Productlist />} />
       <Route path="/productlist/:category" element={<Productlist />} />
       <Route path="/login" element= { user ? <Navigate to="/"/> : <Login/> }/>
       <Route path="/register" element= { user ? <Navigate to="/"/> : <Register/> }/>

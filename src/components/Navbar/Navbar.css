@@ -137,6 +137,9 @@
   }
 }
 @media only screen and (max-width: 460px) {
+  .announcement-container {
+    margin-top: 75px;
+  }
   .nav-flyout {
     position: fixed;
     width: 95vw;

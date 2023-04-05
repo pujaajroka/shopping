@@ -73,4 +73,10 @@
         .register_container {
           height: auto;
         }
+        .login_container{
+            background-repeat: no-repeat;
+            background-size: 50%;
+            background-size: cover;
+            background-position: center;
+        }
     }

@@ -6,16 +6,6 @@
       "src": "asset/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
-    },
-    {
-      "src": "asset/android-chrome-144x144.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "asset/android-chrome-144x144.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",

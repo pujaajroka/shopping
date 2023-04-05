@@ -3,7 +3,7 @@ import "./Login.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/apiCalls";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 
 
@@ -42,6 +42,7 @@ const Login = () => {
           {error && <span className="error_login"> Something went wrong...</span>}
           <a href="#" className="login_link">DO NOT YOU RENEMBER THE PASSWORD</a>          
           <a href="#" className="login_link">CREATE NEW ACCOUNT</a>
+          <Link className="login_link" to={"/"}>Guest User</Link>
         </form>
       </div>
     </div>

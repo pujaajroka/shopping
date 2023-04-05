@@ -9,6 +9,11 @@ import { useEffect } from 'react';
 const MenuBar = (props) => {
     const [user, setUser] = useState(props.user);
     const ASSETS = process.env.REACT_APP_ASSETS_URL;
+   
+    const handleLogout = () => {
+        localStorage.removeItem("persist:root");
+    }
+
     useEffect(() => {
         setUser(props.user)
     }, [])
@@ -43,7 +48,7 @@ const MenuBar = (props) => {
                         <Link to={'/contact'}> Contact </Link>
                     </li>
                     <li>
-                        <Link to={'/login'}> {props.user ? 'Logout' : 'Login'} </Link>
+                        <Link onClick={handleLogout} to={'/login'}> {props.user ? 'Logout' : 'Login'} </Link>
                     </li>
                 </ul>
             </div>

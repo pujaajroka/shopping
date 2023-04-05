@@ -4,25 +4,24 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import React from 'react';
 import './Navbar.css';
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import MenuBar from '../MenuBar/MenuBar';
 
-
-
-
 const Navbar = () => {
   const ASSETS = process.env.REACT_APP_ASSETS_URL;
   const [user, setUser] = useState(null);
   const [menuToggle, setMenuToggle] = useState(false);
+  const location = useLocation();
 
-  const isLocalStorage = localStorage.getItem("persist:root");
+  let isLocalStorage = localStorage.getItem("persist:root");
   const quantity = useSelector(state => state.cart.quantity);
+  const userLogedIn = useSelector(state => state.user);
 
   const handleLogout = () => {
-    localStorage.removeItem("persist:root");
+     localStorage.removeItem("persist:root");
   }
 
   const handleMenuClick = () => {
@@ -39,10 +38,10 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    if (isLocalStorage) {
-      setUser(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser);
+    if (userLogedIn.currentUser) {
+        setUser(userLogedIn.currentUser);
     }
-  }, [isLocalStorage])
+  }, [isLocalStorage, location])
 
   return (
     <div className='container' onClick={handleBodyClick}>
