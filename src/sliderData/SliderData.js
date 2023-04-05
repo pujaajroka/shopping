@@ -1,21 +1,24 @@
 export const sliderItems =[
           {
             id: 1,
-            img: "/asset/banner2.jpg",
+            img: "banner1.jpg",
             info: "WINTER SALE",
-            description_img: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF ON NEW ARRIVAL."
+            description_img: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF ON NEW ARRIVAL.",
+            link: 'summer'
           },
           {
             id: 2,
-            img: "/asset/banner2.jpg",
+            img: "banner2.jpg",
             info: "WINTER SALE",
-            description_img: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF ON NEW ARRIVAL."
+            description_img: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF ON NEW ARRIVAL.",
+            link: 'winter'
           },
           {
             id: 3,
-            img: "/asset/banner2.jpg",
+            img: "banner3.jpg",
             info: "WINTER SALE",
-            description_img: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF ON NEW ARRIVAL."
+            description_img: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF ON NEW ARRIVAL.",
+            link: 'season'
           }
     
 ]

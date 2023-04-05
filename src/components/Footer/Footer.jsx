@@ -12,12 +12,13 @@ import React from "react";
 import "./Footer.css";
 import { Link, Navigate } from "react-router-dom";
 const Footer = () => {
+  const ASSETS = process.env.REACT_APP_ASSETS_URL;
   return (
     <div className="footer_container">
       <div className="footer_left">
         <div className="navLeft img">
         <Link to="/home">
-          <img src="/asset/logo.png"/> 
+           <img src={ASSETS+'logo.png'}/> 
         </Link>
         </div>
         <p className="desc">
@@ -71,7 +72,7 @@ const Footer = () => {
           </li>
          
           <li className="footer_listitem_li">
-            <Link className="link" to="/myAccouny">
+            <Link className="link" to="/account">
               {" "}
               My Account
             </Link>
@@ -109,7 +110,7 @@ const Footer = () => {
           9867969377
         </div>
         <div className="contact_item">
-          <MailOutline className="room" /> <a href="/" className="mail_office">support@xtyles.in </a> | <a href="#" className="mail_office">sales@xtyles.in </a>{" "}
+          <MailOutline className="room" /> <a href="mailto:support@xtyles.in"  className="mail_office">support@xtyles.in</a> | <a href="mailto:sales@xtyles.in" className="mail_office">sales@xtyles.in </a>{" "}
         </div>
         <img className="payment" src="/asset/card.jpg" />
       </div>

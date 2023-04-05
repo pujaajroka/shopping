@@ -48,16 +48,15 @@ form{
  color: white;
  cursor: pointer;
 }
+.error {
+  color: red;
+}
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 460px) {
   .reg_wrapper{
-      width: 72%;
+      width: 90%;
   }
-  .register_container input{
-    font-size: 17px;
-  }
-  .reg_aggrement{
-    font-size: 16px;
-    font-weight: bold;
+  .register_container {
+    height: auto;
   }
 }

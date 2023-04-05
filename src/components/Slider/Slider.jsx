@@ -3,29 +3,28 @@ import React from 'react'
 import "./Slider.css"
 import { sliderItems } from '../../sliderData/SliderData'
 import Slide from '../Slide/Slide';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function Slider() {
     const [slideIndex, setSlideIndex] = useState(0);
    
     const [slideData, setSlideData] = useState(sliderItems);
-    // console.log(slideData)
+  
     const  handleClick=(direction)=>{
        if (direction=== "left"){
         setSlideIndex(slideIndex > 0 ? slideIndex -1: 2);
        }else{
         setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0);
        }
-
-    }
+    }    
     
   return (
     <div className='slider-container'>
         <div className='arrow' onClick={()=> handleClick("left")}>
            <ArrowLeftOutlined/>
         </div>
-          <div className='arrow-wrapper'>
+          <div onMouseLeave={() => handleClick('right')} className={`arrow-wrapper slide-${slideIndex}`}>
            {
              slideData.map(item =>{
                   return <Slide key={item.id} slide={item} slideIndex={slideIndex}/>

@@ -6,10 +6,29 @@ import Footer from "../../components/Footer/Footer";
 import { Add, Remove } from "@material-ui/icons";
 import { Link, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { addProduct, updateQuantity } from '../../Redux/cartRedux';
 import Checkout from "../Checkout/Checkout";
+import { useDispatch } from 'react-redux';
 const Cart = () => {
   const cart = useSelector(state => state.cart);
+  const dispatch = useDispatch();
 
+  const handleClickBtn = (product, event)=> {
+    if(event === 'add') {
+      const quantity = product.quantity + 1;
+      dispatch(
+        updateQuantity({...product, quantity})
+      )
+    } else {
+      let quantity = product.quantity - 1;
+      if(quantity === 0) quantity = 1;
+      dispatch(
+        updateQuantity({...product, quantity})
+      )
+    }
+    
+    
+  }
 
   return (
     <div className="cart_container">
@@ -32,28 +51,37 @@ const Cart = () => {
              cart.products.map(product => (
               <div className="cart_product_wrapper">
                 <div className="product_detail">
-                  <img className="pr_img" src={product.img} />
+                  <div className="pr_img"
+                   style={{ 
+                    backgroundImage: `url("${product.img}")` 
+                  }}
+                  />
                   <div className="img_dtl">
                     <div className="product_name">
-                      <h3>Product :</h3>
-                      <h6 className="pro_name">{product.desc}</h6>
+                      <h3>Product: {product.desc}</h3>
                     </div>
                     <span className="product_id">
-                      <h3>Product Id :</h3>
-                      <p>{product._id}</p>
+                      <h3>Product Id: {product._id}</h3>
                     </span>
-                    <div className="product_color">{product.color}</div>
+                    
+                    <div className="product_color">
+                      <h3>
+                      Colors:                      
+                      </h3>
+                      <span>{product.color}</span>
+                    </div>
                     <span className="product_size">
-                      <h3>Product Size :</h3>
-                      <p>{product.size}</p>
+                      <h3>Product Size: {product.size ? product.size.join(', ') : 'NA'}</h3>
+                      
                     </span>
                   </div>
                 </div>
                 <div className="price_detail">
                   <div className="product_amount_container">
-                    <Add />
+                    <Remove onClick={() => handleClickBtn(product, 'remove')} className="reduce" />
                     <div className="product-amount">{product.quantity}</div>
-                    <Remove />
+                    <Add  onClick={(e) => handleClickBtn(product, 'add')} className="add" />
+                   
                   </div>
                   <div className="product_price">Rs.{product.price*product.quantity}/-</div>
                 </div>

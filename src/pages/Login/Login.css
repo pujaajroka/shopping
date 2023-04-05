@@ -4,7 +4,7 @@
     width:100vw;
     height:100vh;
     background:linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)) ,
-    url("..../../../../../public/asset/bg5.jpg");
+    url("/public/asset/contact-us-bg.png");
     opacity:0.1px;
     display: flex;
     align-items: center;
@@ -63,15 +63,14 @@
         color:blue;
     }
 
-    @media only screen and (max-width: 375px) {
-        .wrapper_login{
-            width: 72%;
+    @media only screen and (max-width: 460px) {
+        .wrapper_login {
+            width: 80% !important;
         }
-    }
-    @media only screen and (max-width: 370px) {
-        
-            .login_container input{
-                margin: 10px 1px;
-            }   
-        
+        .reg_wrapper{
+            width: 90%;
+        }
+        .register_container {
+          height: auto;
+        }
     }

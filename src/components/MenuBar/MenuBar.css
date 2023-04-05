@@ -1,0 +1,40 @@
+
+  .nav-flyout .flyout-content {
+      padding: 10px;
+  }
+  .nav-flyout .flyout-content .profile {
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+       border-bottom: 1px solid #DDD;
+       padding: 25px 0;
+  }
+  .nav-flyout .flyout-content .menu-items {
+
+  }
+  .nav-flyout .flyout-content .menu-items  ul {
+     list-style: none;   
+     padding: 0 10px;
+
+  }
+  .nav-flyout .flyout-content .menu-items  ul li {
+    padding: 10px 0;
+    border-bottom: solid 1px #ddd;
+    width: 100%;
+ }
+ .nav-flyout .flyout-content .menu-items  ul li a {
+    text-decoration: none;
+    color: initial;
+ }
+  .nav-flyout .flyout-content .profile p {
+    padding: 5px 0;
+}
+  .nav-flyout .flyout-content .profile  .image img {
+        width: 100px;
+  }
+  .nav-flyout .flyout-content .close {
+      display: flex;
+      justify-content: right;
+      padding: auto;
+      align-items: center;
+  }

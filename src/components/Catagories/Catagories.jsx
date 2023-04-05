@@ -12,8 +12,7 @@ const Catagories = () => {
       
      {
       catagories.map(item=>{
-        return  <CataContent key={item.id} catagorie={item}/>
-       
+        return  <CataContent key={item.id} catagorie={item}/>       
       }
      
       )  

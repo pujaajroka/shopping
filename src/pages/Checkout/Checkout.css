@@ -70,7 +70,7 @@
     margin-bottom: 30px;
     position: relative;
 }
-input, textarea{
+.checkout_container input, .checkout_container textarea{
     width:100%;
     padding:10px;
     /* color:#05050545; */
@@ -111,6 +111,9 @@ textarea:valid~label
     height: 40px;
     margin-bottom:20px;
     cursor: pointer;
+    background: #f78139;
+    color: #fff;
+    border: solid 1px #b85a00;
 }
 .slect_state{
     height: 40px;
@@ -118,4 +121,26 @@ textarea:valid~label
     outline: 0;
     border: 1px solid #d4c3c3;
     font-size: 15px;
+}
+@media only screen and (max-width: 460px) {
+    .shipping_detail .row {
+        flex-direction: column;
+    }
+    .input_group {
+        flex-basis: unset;
+        width: 90%;
+    }
+    .checkout_page .menu-bar {
+        display: none;
+    }
+    .checkout_page .search-container {
+        display: none;
+    }
+    #btn_sub {
+        width: 98%;
+        margin-left: 0;
+        font-size: 20px;
+
+    }
+
 }

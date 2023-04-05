@@ -92,6 +92,10 @@ margin-bottom: 30px;;
 .mail_office{
     text-decoration: none;
     color:black;
+    padding-right:15px;
+}
+.mail_office:last-child {
+    padding-left:15px;
 }
 .mail_office:hover{
     color:blue;
@@ -142,7 +146,7 @@ margin-bottom: 30px;;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
   
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 460px) {
     .footer_center{
         display: none;
     }

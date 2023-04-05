@@ -5,7 +5,7 @@ import { popProduct } from "./ContainerProductData";
 
 import PopularProduct from "./PopularProduct";
 import { useEffect } from "react";
-import axios from "axios";
+import { publicRequest } from "../../../requestMethod";
 
 const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
   // console.log(path,colorSizeFilter,sort)
@@ -15,7 +15,7 @@ const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
 
   const getFeatureProduct = async () => {
     try {
-      const res = await axios.get('https://sellitwell.herokuapp.com/api/products?feature=true');
+      const res = await publicRequest.get('/products?feature=true');
       // console.log(res.data);
       setPopularProduct(res.data);
     } catch (err) {}
@@ -24,12 +24,8 @@ const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(
-          path
-            ? `https://sellitwell.herokuapp.com/api/products?catagory=${path}`
-            : "https://sellitwell.herokuapp.com/api/products"
-        );
-        // console.log(res.data);
+        const res = path ? await publicRequest.get(`products?category=${path}`) :
+        await publicRequest.get("products")
         setProducts(res.data);
       } catch (err) {}
     };
@@ -73,11 +69,11 @@ const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
 
   return (
     <div className="popular_product_container">
-      {path ? filterProduct.map((item) => {
-        return <PopularProduct key={item.id} popularProduct={item} />;
+      {path ? filterProduct.map((item, index) => {
+        return <PopularProduct key={index} popularProduct={item} />;
       })
-    : poplarProduct.map((item) => {
-      return <PopularProduct key={item.id} popularProduct={item} />;
+    : poplarProduct.map((item, index) => {
+      return <PopularProduct key={index} popularProduct={item} />;
     })
     }
     </div>

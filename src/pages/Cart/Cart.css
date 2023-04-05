@@ -1,189 +1,270 @@
-.cart_container{
+.cart_container {}
 
-}
-.cart_wrapper{
- padding: 20px;
-}
-.cart_title{
- font-weight: 300;
- text-align: center;
-}
-.top{
- display: flex;
- align-items: center;
- justify-content: space-between;
- padding-top: 20px;
-}
-.top_btn{
-cursor: pointer;
-padding: 10px;
-font-weight: 600;
+.cart_wrapper {
+  padding: 20px;
 }
 
-.top_txts{
+.cart_title {
+  font-weight: 300;
+  text-align: center;
+}
 
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
 }
-.top_txt{
- text-decoration: underline;
- cursor: pointer;
- margin: 0px 10px;
+
+.top_btn {
+  cursor: pointer;
+  padding: 10px;
+  font-weight: 600;
 }
-.top_btn{
+
+.top_txts {}
+
+.top_txt {
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0px 10px;
+}
+
+.top_btn {
   text-decoration: none;
   text-decoration: none;
-    border: solid 1px grey;
-    background-color: gray;
-    color: black;
+  border: solid 1px grey;
+  background-color: gray;
+  color: black;
 }
-.top_btn:hover{
+
+.top_btn:hover {
   background-color: rgb(128, 128, 116);
 }
-.bottom{
-    margin-top: 20px;
- display: flex;
- justify-content: space-between;
+
+.bottom {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
-.product_info{
- flex:3;
- 
-}
-.product_summery{
- flex:1;
+
+.product_info {
+  flex: 3;
 
 }
-.cart_product_wrapper{
-display: flex;
-justify-content: space-between;
+
+.product_summery {
+  flex: 1;
+
 }
-.product_detail{
-flex:2;
-display: flex;
+
+.cart_product_wrapper {
+  display: flex;
+  justify-content: space-between;
 }
-.pr_img{
-    margin: 10px;
- width:200px;
+
+.product_detail {
+  flex: 2;
+  display: flex;
 }
-.img_dtl{
+
+.pr_img {
+  background-repeat: no-repeat;
+  margin: 10px;
+  width: 212px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.img_dtl {
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.product_name{
 
+.img_dtl .product_name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-transform: capitalize;
 }
-.pro_name{
-    font-size: 15px;
-}
-.product_id{
 
+.pro_name {
+  font-size: 15px;
 }
-.product_color{
-  width:20px;
-  height:20px;
+
+.product_id {}
+
+.product_color {
+  display: flex;
+}
+
+.product_color span {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: rgb(207, 235, 242);
+  display: flex;
 }
-.product_size{
 
-}
-.price_detail{
-  flex:1;
+.product_size {}
+
+.price_detail {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.product_amount_container{
-display: flex;
-align-items: center;
-margin-bottom: 20px;
+
+.product_amount_container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  background: #efefef;
+  padding: 5px 10px;
+  border: solid 1px #ddd;
 }
-.product-amount{
- font-size: 24px;
- margin: 5px;
+
+.product-amount {
+  font-size: 24px;
+  margin: 5px;
 }
-.product_price{
- font-size: 30px;
- font-weight: 200;
+
+.product_price {
+  font-size: 30px;
+  font-weight: 200;
 }
-.product_color_jeens{
-    border-radius: 50%;
-    width:20px;
-  height:20px;
-    background-color: rgb(59, 59, 69);
+
+.product_color_jeens {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(59, 59, 69);
 }
-.product_color_tshirt{
-    border-radius: 50%;
-    width:20px;
-  height:20px;
-    background-color: rgb(12, 10, 10);
+
+.product_color_tshirt {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(12, 10, 10);
 }
-.line{
-    border: none;
-    background-color: #eee;
-    height: 1px;
+
+.line {
+  border: none;
+  background-color: #eee;
+  height: 1px;
 }
-.product_summery{
-  flex:1;
-  border:0.5px solid lightgrey;
+
+.product_summery {
+  flex: 1;
+  border: 0.5px solid lightgrey;
   border-radius: 10px;
   padding: 20px;
   /* height: 50vh; */
 }
-.summery_title{
- font-weight: 200;
-}
-.summery_item{
-margin: 30px 0px;
-display: flex;
-justify-content: space-between;
-}
-.summery_item_text{
 
+.summery_title {
+  font-weight: 200;
 }
-.summery_item_total{
- 
+
+.summery_item {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
 }
-.summery_item .total_amount{
-    font-weight: 500;
+
+.summery_item_text {}
+
+.summery_item_total {}
+
+.summery_item .total_amount {
+  font-weight: 500;
 }
-#amount_total{
-    font-weight: 500; 
+
+#amount_total {
+  font-weight: 500;
 }
-.ckout_btn{
-width: 100%;
-padding: 10px;
-background-color: black;
-color: white;
-font-weight: 600;
-cursor: pointer;
-text-decoration: none;
-}
-.ckout_btn:hover{
-  background-color: rgb(122, 122, 119);
-}
-.product_summery Link{
+
+.ckout_btn {
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
   text-decoration: none;
 }
+
+.ckout_btn:hover {
+  background-color: rgb(122, 122, 119);
+}
+
+.product_summery Link {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 375px) {
 
-  .cart_wrapper{
+  .cart_wrapper {
     padding: 10px;
   }
-  .top_txts{
+
+  .top_txts {
     display: none;
   }
-  .bottom{
+
+  .bottom {
     flex-direction: column;
   }
-  .cart_product_wrapper{
+
+  .cart_product_wrapper {
     flex-direction: column;
   }
-  .product-amount{
+
+  .product-amount {
     margin: 5px 15px;
   }
-  .product_price{
+
+  .product_price {
     margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .bottom .product_info {
+    flex: unset;
+  }
+
+  .cart_wrapper .top {
+    flex-direction: column;
+  }
+
+  .cart_wrapper .top .top_txts {
+    margin: 15px 0;
+  }
+
+  .cart_wrapper .top .top_btn {
+    display: none;
+  }
+
+  .cart_wrapper .ckout_btn {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cart_wrapper .bottom {
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .cart_product_wrapper {
+    flex-direction: column;
+    border: solid 1px #ddd;
+    margin-bottom: 10px;
   }
 }

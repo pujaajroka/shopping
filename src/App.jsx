@@ -19,6 +19,8 @@ import { Navigate } from 'react-router-dom';
 import About from "./pages/about/About";
 import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
 import Checkout from "./pages/Checkout/Checkout";
+import MyAccount from "./pages/account/MyAccount";
+import Terms from "./pages/terms/Terms";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -41,6 +43,8 @@ const App = () => {
       <Route path="/privacy_policy" element={<PrivacyPolicy />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/account" element={ <MyAccount/>} />
+      <Route path="/terms" element={ <Terms/>} />
     </Routes>
   );
 };

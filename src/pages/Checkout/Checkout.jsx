@@ -2,30 +2,27 @@ import { HelpOutline } from "@material-ui/icons";
 import React from "react";
 import "./Checkout.css";
 import Footer from "../../components/Footer/Footer";
+import Announcement from "../../components/announcement/Announcement";
+import Navbar from "../../components/Navbar/Navbar";
 const Checkout = () => {
-  
+
 
 
 
   return (
-    <div className="checkout_container">
-      <div className="chkout_banner">
-        <h1>Logo</h1> <h1>Checkout</h1>
-        <div className="chkout_acc">
-          <h4 className="ck_p">Have an account?</h4>
-          <button className="checkout_btn">Log-in</button>
+    <div className="checkout_page">
+      <Announcement />
+      <Navbar />
+      <div className="checkout_container">
+        <div className="chkout_banner">
+          <h1>Checkout</h1>
         </div>
-      </div>
-      <div className="sipp">
-        <h2 className="sipp_h2">SIPPING</h2>
-      </div>
-      <h3 className="sip_add">
-        Delivery Address <HelpOutline id="help" />
-      </h3>
+        <p className="sip_add">
+          Please enter your delivery address
+        </p>
 
-      <div className="shipping_detail">
-        <form id="sippin">
-          <div className="row">
+        <div className="shipping_detail">
+          <form id="sippin">
             <div className="input_group">
               <input type="text" id="name" required></input>
               <label for="name">First Name</label>
@@ -34,33 +31,32 @@ const Checkout = () => {
               <input type="text" id="last_name" required></input>
               <label for="last_name">Last Name</label>
             </div>
-          </div>
 
-          <div className="input_group">
-            <textarea id="address" rows="3" required></textarea>
-            <label for="address">Address</label>
-          </div>
-          <div className="input_group">
-            <input type="email" id="email" required></input>
-            <label for="email">Email</label>
-          </div>
-         
-          <div className="input_group">
-            <input type="number" id="code" required></input>
-            <label for="code">Pin Code</label>
-          </div>
-          <div className="input_group">
-            <input type="number" id="number" required></input>
-            <label for="number">Phone Number</label>
-          </div>
-          <div className="row">
             <div className="input_group">
-                <input type="text" id="city" required></input>
-                <label for="city">City</label>
-          
+              <textarea id="address" rows="3" required></textarea>
+              <label for="address">Address</label>
             </div>
             <div className="input_group">
-                <select class="slect_state">
+              <input type="email" id="email" required></input>
+              <label for="email">Email</label>
+            </div>
+
+            <div className="input_group">
+              <input type="number" id="code" required></input>
+              <label for="code">Pin Code</label>
+            </div>
+            <div className="input_group">
+              <input type="number" id="number" required></input>
+              <label for="number">Phone Number</label>
+            </div>
+
+            <div className="input_group">
+              <input type="text" id="city" required></input>
+              <label for="city">City</label>
+
+            </div>
+            <div className="input_group">
+              <select class="slect_state">
                 <option value="">Select State</option>
                 <option value="AN">Andaman and Nicobar Islands</option>
                 <option value="AP">Andhra Pradesh</option>
@@ -99,15 +95,16 @@ const Checkout = () => {
                 <option value="UP">Uttar Pradesh</option>
                 <option value="UT">Uttarakhand</option>
                 <option value="WB">West Bengal</option>
-                </select>
-                
+              </select>
+
             </div>
-          </div>
-          
-          <button id="btn_sub">SUBMIT</button>
-        </form>
+
+
+            <button id="btn_sub" type="button">Proceed To Payment</button>
+          </form>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };

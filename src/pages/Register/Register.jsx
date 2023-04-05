@@ -1,136 +1,242 @@
 import React, { useEffect, useState } from "react";
 import "./Register.css";
+import { Navigate, useNavigate } from "react-router-dom";
+import { publicRequest } from "../../requestMethod";
 
 const Register = () => {
-  let userDetailsReg = {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    email: "",
-    password: "",
-  };
+  const [confirmPass, setConfirmPass] = useState(false);
+  const inputRegUsername = React.useRef();
+  const inputRegEmail = React.useRef();
+  const inputRegPassword = React.useRef();
+  const inputRegConfirmPassword = React.useRef();
+  const navigate = useNavigate();
+
   let userDetailRegError = [
     {
-      name: "firstName",
-      message: "First name should not be empty",
+      name: "username",
+      message: "username name should not be empty",
       visible: false,
-    },
-    {
-      name: "lastName",
-      message: "Last name should not be empty",
-      visible: false,
-    },
-    {
-      name: "phone",
-      message: "Please insert your 10 digits contact number",
-      visible: false,
+      value: ''
     },
     {
       name: "email",
-      message: "Please insert your valid e-mail id",
+      message: "Please enter a valid e-mail id",
       visible: false,
+      value: ''
     },
     {
       name: "password",
       message: "Please enter your password",
       visible: false,
+      value: ''
     },
+    {
+      name: "confirmPassword",
+      message: "Please re-enter your password",
+      visible: false,
+      value: ''
+    }
   ];
-
-  const inputRegFirstName = React.useRef();
-  const inputRegLastName = React.useRef();
-  const inputRegContactNum = React.useRef();
-  const inputRegEmail = React.useRef();
-  const inputRegPassword = React.useRef();
-  const inputRegConfirmPassword = React.useRef();
-
-  // 
-  // console.log(reg_form.firstName)
   const [regErrMsg, setRegErrMsg] = useState(userDetailRegError);
-  const [userReisterFormDetail, setUserRegisterFormDetail] =
-    useState(userDetailsReg);
-  const [errRegMsg, SetErrRegMsg] = useState(userDetailRegError);
+ 
 
-  useEffect(() => {}, [userReisterFormDetail]);
+  useEffect(() => {}, [userDetailRegError]);
+
+  const handleChange = (e) => {
+      const value = e.target.value;
+      const fields = [...regErrMsg];
+      const field = fields.find(n => n.name === e.target.id)
+      if(field) field.visible = false;
+      setRegErrMsg(fields)
+      
+  }
 
   const register_form = async (e) => {
-    e.preventDefault();
-  //   const reg_form ={
-  //             firstName: inputRegFirstName.target.value,
-  //             lastName: inputRegLastName.target.value,
-  //             phone:inputRegContactNum.target.value,
-  //             email: inputRegEmail.target.value,
-  //             password: inputRegPassword.target.value
-  //           }
-  //  console.log(reg_form)
-    //
-    //     setUserRegisterFormDetail(reg_form)
+     e.preventDefault();
+     const form = [...e.target];
+     form.forEach(item => {
+      if(item.id) {
+        const ele = regErrMsg.find(n => n.name === item.id);
+        if(ele) ele.value = item.value;
+      }         
+     });
+     
+     if(!validateRegisterForm()) {
+        return false;
+     }
+   
   };
+  const validateRegisterForm = () => {
+      const fields = [...regErrMsg];
+      const passwords = [];
+      fields.forEach(item => {
+          if(item.value === "") {
+             item.visible = true;
+          } else {
+            item.visible = false;
+          }
+          if(item.name === 'password' || item.name === 'confirmPassword') {
+              passwords.push(item.value)
+          }
+      });
+      setRegErrMsg(fields);
+      const isError = regErrMsg.some(t => t.visible === true);
+      if(!isError) {
+        if(passwords[0] !== passwords[1]) {
+           setConfirmPass(true);
+           return false;
+        } else {
+          setConfirmPass(false);
+          submitRegister();
+           // service calls
+        }
+       
+
+      } else {
+         return false;
+      }
+  }
+
+  const submitRegister = async () => {
+    try{
+      const user = {
+         username: regErrMsg[0].value,
+         email: regErrMsg[1].value,
+         password: regErrMsg[2].value
+      }
+      const res = await publicRequest.post("/auth/register", user);
+      if(res) {
+         resetFields();
+         navigate('/');
+         console.log('user created successfully!');
+         
+      }      
+     
+    }catch (error){
+      resetFields();
+      console.log(error, 'new user creation failed')
+    } 
+  }
+
+  const resetFields = () => {
+    inputRegUsername.current.value = '';
+    inputRegEmail.current.value = '';
+    inputRegPassword.current.value = '';
+    inputRegConfirmPassword.current.value = ''
+  }
+
+
 
   return (
     <div className="register_container">
       <div className="reg_wrapper">
         <h1 className="register_title">CREATE AN ACCOUNT</h1>
         <form onSubmit={register_form}>
+
           <div className="reg_form">
             <input
               type="text"
-              placeholder="First Name"
-              id="first_name"
-              
-              ref={inputRegFirstName}
+              placeholder="Username"
+              id="username"
+              onChange={(e)=> handleChange(e)}              
+              ref={inputRegUsername}
             />
-            <div className="userDetailRegError"></div>
+            {
+              regErrMsg.map(item => {
+                if(item.name === 'username' && item.visible) {
+                  return  <div className="error">{item.message}</div>
+                }                   
+              })
+            }
+            
           </div>
-          <div className="reg_form">
+          {/* <div className="reg_form">
             <input
               type="text"
               placeholder="Last-Name"
-              id="last_name"
-             
+              id="lastName"
+              onChange={(e)=> handleChange(e)}      
               ref={inputRegLastName}
             />
-            <div className="userDetailRegError"></div>
-          </div>
+          
+          {
+              regErrMsg.map(item => {
+                if(item.name === 'lastName' && item.visible) {
+                  return  <div className="error">{item.message}</div>
+                }                   
+              })
+            }
+          </div> */}
 
-          <div className="reg_form">
+          {/* <div className="reg_form">
             <input
               type="number"
               placeholder="Contact-number"
               id="phone"
-              
+              onChange={(e)=> handleChange(e)}      
               ref={inputRegContactNum}
             />
-            <div className="userDetailRegError"></div>
-          </div>
+             {
+              regErrMsg.map(item => {
+                if(item.name === 'phone' && item.visible) {
+                  return  <div className="error">{item.message}</div>
+                }                   
+              })
+            }
+          </div> */}
 
           <div className="reg_form">
             <input
               type="email"
               placeholder="E-mail"
-              id="mail"
-             
+              id="email"
+              onChange={(e)=> handleChange(e)}      
               ref={inputRegEmail}
             />
-            <div className="userDetailRegError"></div>
+            {
+              regErrMsg.map(item => {
+                if(item.name === 'email' && item.visible) {
+                  return  <div className="error">{item.message}</div>
+                }                   
+              })
+            }
           </div>
 
           <div className="reg_form">
             <input
               type="password"
               placeholder="Password"
-              id="password"
-             
+              id="password"  
+              onChange={(e)=> handleChange(e)}                
               ref={inputRegPassword}
             />
+             {
+              regErrMsg.map(item => {
+                if(item.name === 'password' && item.visible) {
+                  return  <div className="error">{item.message}</div>
+                }                   
+              })
+            }
           </div>
 
           <div className="reg_form">
             <input
+              id="confirmPassword"
               placeholder="Confirm Password"
+              onChange={(e)=> handleChange(e)}      
               ref={inputRegConfirmPassword}
             />
-            <div className="userDetailRegError"></div>
+             {
+              regErrMsg.map(item => {
+                if(item.name === 'confirmPassword' && item.visible) {
+                  return  <div className="error">{item.message}</div>
+                }                   
+              })
+            }
+            {
+              confirmPass ?  <div className="error">Password and confirm password not matched!</div> : ''
+            }
+           
           </div>
           <div className="err_box"></div>
           <span className="reg_aggrement">

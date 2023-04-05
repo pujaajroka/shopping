@@ -54,14 +54,17 @@ color:white;
     }
     
 }
-@media only screen and (max-width: 414px){
-    /* .newsletter_container{
-        width: 95vh;
+@media only screen and (max-width: 460px){
+    .newsletter_container .title {
+            margin: 10px;
     }
-
-    .title{
-        font-size: 50px;
-    }  */
+    .newsletter_container .title h2 {
+        font-size: 1.5rem;
+    }
+    .newsletter_container {
+        height: auto;
+        padding: 15px;
+    }
 }
       
 
