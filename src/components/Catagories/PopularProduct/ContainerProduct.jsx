@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { publicRequest } from "../../../requestMethod";
 
 const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
-  // console.log(path,colorSizeFilter,sort)
   const [poplarProduct, setPopularProduct] = useState([]);
   const [product, setProducts] = useState([]);
   const [filterProduct, setFilterProduct] = useState([]);
@@ -16,7 +15,6 @@ const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
   const getFeatureProduct = async () => {
     try {
       const res = await publicRequest.get('/products?feature=true');
-      // console.log(res.data);
       setPopularProduct(res.data);
     } catch (err) {}
   };

@@ -34,7 +34,8 @@ const App = () => {
         setUser(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser);
      }
   },[isLocalStorage, location]);
- 
+
+  
   return (
     <Routes>
       <Route path="/" element={<Home />} />

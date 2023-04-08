@@ -12,7 +12,6 @@ import { useDispatch } from 'react-redux';
 
 
 const PopularProduct = (props) => {
-  //  console.log(props.popularProduct);
   const popularData = props.popularProduct;
   const dispatch = useDispatch()
 

@@ -73,12 +73,16 @@ const Navbar = () => {
         <div className='menu-bar'>
 
           {user && user.currentUser !== '' ?
-
+            <>
             <div className='menu-item'><Link to="/login" onClick={handleLogout}>LOG-OUT</Link></div>
+            {
+              user && user.isAdmin && <div className='menu-item'><Link to="http://www.admin.xtyles.in">Admin Dashboard</Link></div>
+            }
+            </>
             :
             <>
               <div className='menu-item'><Link to="/register">REGISTER</Link></div>
-              <div className='menu-item'><Link to="/login">LOG-IN</Link></div>
+              <div className='menu-item'><Link to="/login">LOG-IN</Link></div>              
             </>
 
           }

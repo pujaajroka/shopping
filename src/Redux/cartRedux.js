@@ -16,8 +16,7 @@
         updateQuantity: (state, action) => {
                 const index = state.products.findIndex(t => t._id === action.payload._id)
                 state.products[index].quantity = action.payload.quantity;
-                //state.products = state.products.
-                console.log(state)
+               
         }
     }
 
