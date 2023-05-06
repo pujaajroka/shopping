@@ -1,0 +1,72 @@
+{
+    "product_list": [
+        {
+        "title": "WINTER IS HERE",
+        "desc": "",
+        "img": "asset/cardigan_2.jpg",
+        "catagories": "women",
+        "size": "M",
+        "color": "blue",
+        "price": 1200
+        },
+        {
+          "title": "WINTER IS HERE",
+        "desc": "",
+        "img": "asset/cardigan_2.jpg",
+        "catagories": "WINTER IS HERE",
+        "size": "",
+        "color": "",
+        "price": ""
+          }
+    ],
+    "brands": [
+      {
+        "name":"Pepe_Jeans",
+        "img": "brand-1.jpg"
+      },
+      {
+        "name":"Levi's",
+        "img": "brand-2.jpg"
+      },
+      {
+        "name":"Puma",
+        "img": "brand-3.jpg"
+      },
+      {
+        "name":"Olizzo",
+        "img": "brand-4.jpg"
+      },
+      {
+        "name":"Madame",
+        "img": "brand-5.jpg"
+      },
+      {
+        "name":"Adidas",
+        "img": "brand-6.jpg"
+      },
+      {
+        "name":"Gine&John",
+        "img": "brand-7.jpg"
+      },
+      {
+        "name":"CalvinKlein",
+        "img": "brand-8.jpg"
+      },
+      {
+        "name":"W",
+        "img": "brand-9.jpg"
+      },
+      {
+        "name":"Avaasa",
+        "img": "brand-10.jpg"
+      },
+      {
+        "name":"Lee_Cooper",
+        "img": "brand-11.jpg"
+      },
+      {
+        "name":"Biba",
+        "img": "brand-12.jpg"
+      }
+    ]
+  }

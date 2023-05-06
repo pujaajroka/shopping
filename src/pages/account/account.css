@@ -1,0 +1,47 @@
+.form-panel {
+    width: 100%;
+    border: solid 1px #ddd;
+    padding: 25px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+.form-group {
+  display: flex;  
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 0;
+}
+.form-group > span {
+    width: 120px;
+    padding: 10px;
+}
+.form-group > input {
+    width: 180px;
+    padding: 10px;
+    border: solid 1px #ccc;
+}
+.form-group > button {
+    padding: 10px 35px;
+    border: solid 1px #ccc;
+    background-color: #155263;
+    margin-right: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+.form-group > button:disabled {
+    background-color: #ccc;
+}
+.form-group > input:focus {
+    border: solid 1px #ccc;
+    outline: none;
+}
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    width: 120px;
+}
+.form-group label {
+    
+}

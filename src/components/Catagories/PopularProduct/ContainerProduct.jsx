@@ -66,6 +66,7 @@ const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
 
 
   return (
+    <>
     <div className="popular_product_container">
       {path ? filterProduct.map((item, index) => {
         return <PopularProduct key={index} popularProduct={item} />;
@@ -75,6 +76,7 @@ const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
     })
     }
     </div>
+    </>
   );
 };
 

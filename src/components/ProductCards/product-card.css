@@ -1,0 +1,9 @@
+.product-card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.product-card-container > div {
+     width: 20% !important;
+}

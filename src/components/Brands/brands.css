@@ -1,0 +1,11 @@
+.brands-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.brands-container > div{
+    width: 300px;
+    margin: 25px;
+    text-align: center;
+}

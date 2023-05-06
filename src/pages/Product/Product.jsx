@@ -10,6 +10,7 @@ import { publicRequest } from '../../requestMethod';
 
 import { addProduct } from '../../Redux/cartRedux';
 import { useDispatch } from 'react-redux';
+import ProductCard from '../../components/ProductCards/ProductCards';
 
 const Product = () => {
   const location = useLocation();
@@ -26,7 +27,8 @@ const Product = () => {
     const getPro = async ()=>{
       try{
         const res = await publicRequest.get("/products/find/"+id);
-        setProductItm(res.data)
+        setProductItm(res.data);
+        window.scrollTo({top: 0, behavior: 'smooth'});
        
       }catch{
 
@@ -50,7 +52,12 @@ const Product = () => {
     )
    
    }
-  
+
+   const percentage = (A, B) =>{
+    let percDiff;
+    const diff = A -B;
+    return percDiff =  (100 * diff / A).toFixed() + "%";
+    } 
 
   return (
     <div className='product'>
@@ -64,7 +71,8 @@ const Product = () => {
             <h1 className='ttl'> {productItm.title}</h1>
             <p className='des'> {productItm.desc}
             </p>
-            <span className='price'>₹ <strong> {productItm.price} </strong> <small> {productItm.mrp}</small></span>
+            <span className='price'>₹ <strong> {productItm.price} /- </strong> <small> <del>{productItm.mrp} /-</del></small></span>
+            <div className='discount'>{percentage(productItm.mrp, productItm.price)} OFF</div>
             <div className='filter_cnt'>
                <div className='filter_col'> Color: &nbsp;             
                   <select className='slct' onChange={(e)=>setColor(e.target.value)}>
@@ -94,6 +102,9 @@ const Product = () => {
                 <button className='crtt_btn' onClick={handleClick}>Add To Cart</button>
              </div>
         </div>
+       </div>
+       <div className="related-products">
+              <ProductCard category={productItm.categories} title="Related Products"/>
        </div>
        <Newsletter/>
        <Footer/>

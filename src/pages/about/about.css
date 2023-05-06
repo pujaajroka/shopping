@@ -1,3 +1,7 @@
 .inner-container {
     padding: 30px;
 }
+
+.inner-container p{
+    padding: 15px 0;
+}

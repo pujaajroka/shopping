@@ -59,13 +59,13 @@ const Footer = () => {
             </Link>
           </li>
           <li className="footer_listitem_li">
-            <Link className="link" to="/men fashion">
+            <Link className="link" to="/productlist/men">
               {" "}
               Men Fashion
             </Link>
           </li>
           <li className="footer_listitem_li">
-            <Link className="link" to="/women fashion">
+            <Link className="link" to="/productlist/women">
               {" "}
               Women Fashion
             </Link>
@@ -78,7 +78,7 @@ const Footer = () => {
             </Link>
           </li>
           <li className="footer_listitem_li">
-            <Link className="link" to="/order tracking">
+            <Link className="link" to="/order">
               {" "}
               Order Tracking
             </Link>
@@ -92,7 +92,7 @@ const Footer = () => {
           </li>
 
           <li className="footer_listitem_li">
-            <Link className="link" to="/privacy&policy">
+            <Link className="link" to="/privacy_policy">
               {" "}
               Privacy & Policy
             </Link>
@@ -107,7 +107,7 @@ const Footer = () => {
         <div className="contact_item">
           {" "}
           <Phone className="room" />
-          9867969377
+          +91 9867969377
         </div>
         <div className="contact_item">
           <MailOutline className="room" /> <a href="mailto:support@xtyles.in"  className="mail_office">support@xtyles.in</a> | <a href="mailto:sales@xtyles.in" className="mail_office">sales@xtyles.in </a>{" "}

@@ -16,3 +16,21 @@
          height: 100vh;
     }
 } */
+.header-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin: 40px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    position: relative;
+  } 
+  .header-title:after {
+      content: ' ';
+      border: solid 1px black;
+      width: 180px;
+      position: absolute;
+      bottom: -15px;
+  
+  }

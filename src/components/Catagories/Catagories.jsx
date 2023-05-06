@@ -9,7 +9,7 @@ const Catagories = () => {
     const [catagories, setCatagories]= useState(CatagoriesData);
   return (
     <div className='container_catagories'>
-      
+    
      {
       catagories.map(item=>{
         return  <CataContent key={item.id} catagorie={item}/>       

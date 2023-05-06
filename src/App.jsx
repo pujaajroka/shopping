@@ -22,6 +22,7 @@ import Checkout from "./pages/Checkout/Checkout";
 import MyAccount from "./pages/account/MyAccount";
 import Terms from "./pages/terms/Terms";
 import { useLocation } from 'react-router-dom';
+import OrderTracking from "./pages/order/OrdersTracking";
 
 
 const App = () => {
@@ -44,6 +45,7 @@ const App = () => {
       <Route path="/product/:id" element={<Product />} />
       <Route path="/productlist/" element={<Productlist />} />
       <Route path="/productlist/:category" element={<Productlist />} />
+      <Route path="/productlist/:brand" element={<Productlist />} />
       <Route path="/login" element= { user ? <Navigate to="/"/> : <Login/> }/>
       <Route path="/register" element= { user ? <Navigate to="/"/> : <Register/> }/>
       <Route path="/about" element={<About />} />
@@ -52,6 +54,7 @@ const App = () => {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/account" element={ <MyAccount/>} />
       <Route path="/terms" element={ <Terms/>} />
+      <Route path="/order" element={ <OrderTracking/>} />
     </Routes>
   );
 };

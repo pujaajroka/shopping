@@ -6,6 +6,8 @@ import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 import Newsletter from '../components/Newsletter/Newsletter';
 import Slider from '../components/Slider/Slider';
+import Brand from '../components/Brands/Brands';
+import Title from '../components/Shared/Title';
 
 const Home = () => {
   return (
@@ -14,7 +16,10 @@ const Home = () => {
        <Navbar/>
        <Slider />
        <Catagories/>
+       <Title title="Featured Products"/>
        <ContainerProduct/>
+       <Title title="Brands"/>
+       <Brand/>
        <Newsletter/>
        <Footer/>
     </div>

@@ -116,35 +116,6 @@ margin-bottom: 30px;;
     }
     
 }
-/* PRIVACY POLICY */
-
-.peiv_container{
-   
-    background-color: rgb(212, 222, 222);
-    width:100%;
-}
- .priv_policy{
-   box-shadow: 20px 20px rgba(0,0,0,.15);
-  
-   
-    margin-left:15%;
-    margin-right:10%;
-    margin-top:  5%;
-    margin-bottom:5%;
-   background-color: #deddde;
-   box-shadow: 20px 20px rgba(0,0,0,.15);
-   border-radius: 2% 2% 2% 2% / 2% 2% 2% 2% ;
-} 
-
-.privacy_pol{
-   text-align: center;
-   padding-top: 10px;
-    
-}
-.about_privacy{
-    padding:10px 10px 10px 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
   
 @media only screen and (max-width: 460px) {
     .footer_center{
