@@ -10,7 +10,7 @@ const Brand = (brands) => {
     <div className="brands-container">
         {
             data.brands.map((t, i) => {
-                return <div key={i}> <Link to={'/productlist/'+t.name}><img src={ASSETS+t.img}/> </Link> </div>
+                return <div key={i}> <Link to={'/productlist/brands/'+t.name}><img src={ASSETS+t.img}/> </Link> </div>
             })
         }
        

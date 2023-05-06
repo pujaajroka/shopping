@@ -4,8 +4,11 @@
     align-items: center;
     flex-wrap: wrap;
 }
-.brands-container > div{
+.brands-container > div {
     width: 300px;
     margin: 25px;
     text-align: center;
+}
+.brands-container > div img {
+    width: 200px;
 }

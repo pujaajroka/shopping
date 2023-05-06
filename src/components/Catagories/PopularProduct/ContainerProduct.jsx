@@ -7,10 +7,11 @@ import PopularProduct from "./PopularProduct";
 import { useEffect } from "react";
 import { publicRequest } from "../../../requestMethod";
 
-const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
+const ContainerProduct = ({pathName, path, colorSizeFilter, sort }) => {
   const [poplarProduct, setPopularProduct] = useState([]);
   const [product, setProducts] = useState([]);
   const [filterProduct, setFilterProduct] = useState([]);
+
 
   const getFeatureProduct = async () => {
     try {
@@ -22,9 +23,23 @@ const ContainerProduct = ({ path, colorSizeFilter, sort }) => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = path ? await publicRequest.get(`products?category=${path}`) :
-        await publicRequest.get("products")
-        setProducts(res.data);
+        if(path){
+          if(path === 'brands') {
+            let brandName = pathName[pathName.length-1];
+            if(brandName.includes('_')){
+              brandName = brandName.replaceAll('_', ' ');
+            }
+            const res = await publicRequest.get(`products?brand=${brandName}`);
+            setProducts(res.data);
+          } else {
+            const res = await publicRequest.get(`products?category=${path}`);
+            setProducts(res.data);
+          }
+            
+        } else {
+            const res = await publicRequest.get("products");
+            setProducts(res.data);
+        }
       } catch (err) {}
     };
     getFeatureProduct();

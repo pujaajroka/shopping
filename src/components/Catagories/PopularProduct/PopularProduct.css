@@ -15,6 +15,18 @@
   /* background-color: #f5fbfd; */
   position: relative;
   margin-bottom: 30px;
+  position: relative;
+}
+.popular_prod_con .price-tag{
+  position: absolute;
+  background-color: #fca731;
+  width: auto;
+  padding: 10px;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .popular_prod_con .popular_image {

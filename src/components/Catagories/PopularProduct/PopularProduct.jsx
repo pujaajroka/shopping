@@ -27,6 +27,7 @@ const PopularProduct = (props) => {
   
   return (
     <div className="popular_prod_con">
+      <div className="price-tag">{popularData.price.toFixed(2)}</div>
       <img className="popular_image" 
       style={{ 
         backgroundImage: `url("${popularData.img}")` 

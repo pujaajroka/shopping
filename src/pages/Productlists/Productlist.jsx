@@ -11,8 +11,10 @@ import "./Productlist.css"
 const Productlist = () => {
   const location = useLocation();
   const path = location.pathname.split('/')[2];
+  const pathName = location.pathname.split('/');
   const [colorSizeFilter, setColorSizeFilter] = useState({});
  const [sort, setSort] = useState("newest");
+ window.scrollTo({ top: 0, behavior: 'smooth' });
  const colSizHandle=(e)=>{
    const value = e.target.value;
    setColorSizeFilter({
@@ -60,7 +62,7 @@ const Productlist = () => {
                 </select>
             </div>
         </div>
-        <ContainerProduct path = {path} colorSizeFilter={colorSizeFilter} sort={sort}/>
+        <ContainerProduct pathName={pathName} path = {path} colorSizeFilter={colorSizeFilter} sort={sort}/>
         <Newsletter/>
         <Footer/>
     </div>
