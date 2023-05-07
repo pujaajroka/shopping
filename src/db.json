@@ -68,5 +68,27 @@
         "name":"Biba",
         "img": "brand-12.jpg"
       }
+    ],
+    "paymentMode":[
+      {
+        "name": "Credit Card/Debit Card",
+        "id":"CC",
+        "active":true
+      },
+      {
+        "name": "Net Banking",
+        "id":"NB",
+        "active":false
+      },
+      {
+        "name": "UPI",
+        "id":"UPI",
+        "active":false
+      },
+      {
+        "name": "Cash on Delivery",
+        "id":"COD",
+        "active":false
+      }
     ]
   }

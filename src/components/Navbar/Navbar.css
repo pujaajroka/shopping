@@ -2,8 +2,7 @@
   font-family: "MemphisRiver";
   src: url('../../../Memphis\ River.otf');
 }
- .container {
-  height: 60px;
+ .nav-container {
   display: flex;
   padding: 15px 20px;
   justify-content: space-between;
@@ -37,13 +36,16 @@
   display: flex;
   align-items: center;
   border: 0.5px solid lightgray;
-  margin: 10px;
+  margin: 20px 0;
   padding: 5px;
+  box-sizing: border-box;
+  height: 40px;
+  width: 100%;
 }
 .search-input {
   border: none;
   width: 100%;
-  padding: 10px 0px;
+  padding: 6px 0px;
 }
 .search-input:focus-visible {
   border: none;
@@ -86,7 +88,7 @@
 
 /* media query 380 */
 @media only screen and (max-width: 375px) {
-  .container {
+  .nav-container {
     height: 25px;
     margin-right: 9px;
     padding: 10px 5px;
@@ -109,7 +111,7 @@
   }
 }
 @media only screen and (max-width: 370px) {
-  .container {
+  .nav-container {
     height: 25px;
     margin-right: 5px;
     padding: 10px 0px;
@@ -127,7 +129,7 @@
  }
 }
 @media only screen and (max-width: 390px) {
-  .container {
+  .nav-container {
     height: 25px;
     margin-right: 9px;
     padding: 10px 5px;
@@ -194,7 +196,7 @@
   .navLeft img {
     height: 55px;
   }
-  .container {
+  .nav-container {
     flex-direction: column;
     height: auto;    
   }

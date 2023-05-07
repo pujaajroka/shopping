@@ -1,0 +1,10 @@
+.bank-select {
+    width: 100%;
+}
+
+.bank-select select {
+    width: 100%;
+    padding: 5px;
+    border: solid 1px #ddd;
+    height: 35px;
+}

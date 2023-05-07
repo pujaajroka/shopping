@@ -44,7 +44,7 @@ const Navbar = () => {
   }, [isLocalStorage, location])
 
   return (
-    <div className='container' onClick={handleBodyClick}>
+    <div className='nav-container' onClick={handleBodyClick}>
       <div className='nav navLeft'>
         <Link to="/"> <img src={ASSETS + 'logo.png'} /></Link>
       </div>

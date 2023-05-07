@@ -31,11 +31,13 @@
 }
 
 .top_btn {
+  background: #ff9f31;
+  color: #fff;
+  border: solid 1px #9c5402;
+  text-shadow: 0 1px black;
+  padding: 10px 15px;
   text-decoration: none;
-  text-decoration: none;
-  border: solid 1px grey;
-  background-color: gray;
-  color: black;
+  letter-spacing: 2px;
 }
 
 .top_btn:hover {
@@ -196,6 +198,9 @@
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 .ckout_btn:hover {

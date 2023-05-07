@@ -4,6 +4,7 @@ import "./Checkout.css";
 import Footer from "../../components/Footer/Footer";
 import Announcement from "../../components/announcement/Announcement";
 import Navbar from "../../components/Navbar/Navbar";
+import Payment from "../../components/payment/Payment";
 const Checkout = () => {
 
 
@@ -14,7 +15,8 @@ const Checkout = () => {
       <Announcement />
       <Navbar />
       <div className="checkout_container">
-        <div className="chkout_banner">
+       <div className="billing-details">
+       <div className="chkout_banner">
           <h1>Checkout</h1>
         </div>
         <p className="sip_add">
@@ -56,7 +58,7 @@ const Checkout = () => {
 
             </div>
             <div className="input_group">
-              <select class="slect_state">
+              <select className="slect_state">
                 <option value="">Select State</option>
                 <option value="AN">Andaman and Nicobar Islands</option>
                 <option value="AP">Andhra Pradesh</option>
@@ -100,11 +102,16 @@ const Checkout = () => {
             </div>
 
 
-            <button id="btn_sub" type="button">Proceed To Payment</button>
+            <button id="btn_sub" type="button">Save & Proceed</button>
           </form>
         </div>
-        <Footer />
+     
+       </div>
+       <div className="payement-details">
+          <Payment/>
+       </div>
       </div>
+      <Footer />
     </div>
   );
 };

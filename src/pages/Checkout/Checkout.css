@@ -1,6 +1,11 @@
 .checkout_container{
     margin-left: 15px;
     margin-right: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.billing-details, .payement-details {
+    width: 50%;
 }
 .chkout_banner{
     
@@ -48,13 +53,11 @@
   font-size:small;
 
 }
-.shipping_detail{
-   
+.shipping_detail{   
     width:100%;
     display: flex;
     align-items: center;
     justify-content: center; 
-    background-color: rgba(67, 53, 88, 0.088);
 }
 .sipping_form{
     margin-top:10px;
@@ -70,13 +73,14 @@
     margin-bottom: 30px;
     position: relative;
 }
-.checkout_container input, .checkout_container textarea{
+.checkout_container .billing-details input, .checkout_container .billing-details textarea {
     width:100%;
     padding:10px;
     /* color:#05050545; */
     outline: 0;
     border: 1px solid #d4c3c3;
     font-size: 15px;
+    background: #fafafa;
 
 }
 .checkout_page label{
