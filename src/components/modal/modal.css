@@ -1,0 +1,54 @@
+.standard-modal {
+    max-width: 300px;
+    min-width: 200px;
+    height: auto;
+    border : solid 1px #ddd;
+    background-color: #fff;
+    box-shadow: 0 0 3px #555;
+    padding: 30px;
+}
+.standard-modal .radio-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+}
+.standard-modal .radio-group > div {
+    width: 50%;
+    border: solid 1px #bfbfbf;
+    box-sizing: border-box;
+    padding: 11px;
+}
+.standard-modal .btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.standard-modal .btn-group .btn {
+    padding: 10px 20px;
+    background-color: rgb(65, 202, 127);
+    border-color: rgb(65, 202, 127);
+    color: white;
+    letter-spacing: 2px;
+}
+.overlay {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,.2);
+
+}
+.overlay.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

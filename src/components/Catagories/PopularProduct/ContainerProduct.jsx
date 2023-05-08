@@ -6,6 +6,7 @@ import { popProduct } from "./ContainerProductData";
 import PopularProduct from "./PopularProduct";
 import { useEffect } from "react";
 import { publicRequest } from "../../../requestMethod";
+import Modal from "../../modal/Modal";
 
 const ContainerProduct = ({pathName, path, colorSizeFilter, sort }) => {
   const [poplarProduct, setPopularProduct] = useState([]);
@@ -91,6 +92,7 @@ const ContainerProduct = ({pathName, path, colorSizeFilter, sort }) => {
     })
     }
     </div>
+  
     </>
   );
 };

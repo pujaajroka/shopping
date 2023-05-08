@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Cart.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Announcement from "../../components/announcement/Announcement";
 import Footer from "../../components/Footer/Footer";
 import { Add, Remove } from "@material-ui/icons";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate  } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { addProduct, updateQuantity } from '../../Redux/cartRedux';
+import { addProduct, removeProduct, updateQuantity } from '../../Redux/cartRedux';
 import Checkout from "../Checkout/Checkout";
 import { useDispatch } from 'react-redux';
+import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
+import data from '../../db.json';
+
 const Cart = () => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
+
+
+  const setUpdateProduct = (products) => {
+    let obj = {quantity: 0, total: 0 };
+     if(products && products.length) {
+        products.forEach(item => {
+           obj.total += item.price * item.quantity;
+           obj.quantity += item.quantity;
+
+        })
+     }
+     return obj;
+  }
 
   const handleClickBtn = (product, event)=> {
     if(event === 'add') {
@@ -26,8 +43,39 @@ const Cart = () => {
         updateQuantity({...product, quantity})
       )
     }
-    
-    
+  }
+
+  const handleRemoveBtn = (product) => {
+    const products = cart.products.filter(t => t._id !== product._id);
+    const obj = setUpdateProduct(products);
+    dispatch(
+      removeProduct({...product, total: obj.total, quantity: obj.quantity, size: product.size })
+    )
+  }
+
+  const setProductSize = (size) => {
+      const isArry = Array.isArray(size);
+      if(isArry) {
+        const tempArray = [];
+        size.forEach(t=> {
+            const isPreset = tempArray.some(n => n === t)
+            if(!isPreset) {
+              tempArray.push(t);
+            }
+        });      
+        return tempArray.join(', ');
+      } else {
+          return size;
+      }     
+  }
+
+  const setColor = (color) => {
+    let hexColor = '#fff'
+    const col = data.colors.find(t => t.color.toLowerCase() === color[0].toLowerCase());
+    if(col){
+       hexColor = col.code;
+    }
+    return hexColor;
   }
 
   return (
@@ -38,9 +86,9 @@ const Cart = () => {
       <div className="cart_wrapper">
         <h1 className="cart_title">YOUR BAG</h1>
         <div className="top">
-          <button className="top_btn">CONTINUE SHOPPING</button>
+          <button className="top_btn" onClick={() => navigate(-1)}>CONTINUE SHOPPING</button>
           <div className="top_txts">
-            <span className="top_txt">Shopping Bag (2)</span>
+            <span className="top_txt">Shopping Bag ({cart.products ? cart.products.length : 0})</span>
             <span className="top_txt">Your Wishlist (0)</span>
           </div>
           <Link className="top_btn" to={"/checkout"}>CHECKOUT NOW</Link>
@@ -48,8 +96,8 @@ const Cart = () => {
         <div className="bottom">
           <div className="product_info">
             {
-             cart.products.map(product => (
-              <div className="cart_product_wrapper">
+             cart.products.map((product , i)=> (
+              <div className="cart_product_wrapper" key={i}>
                 <div className="product_detail">
                   <div className="pr_img"
                    style={{ 
@@ -60,18 +108,15 @@ const Cart = () => {
                     <div className="product_name">
                       <h3>Product: {product.desc}</h3>
                     </div>
-                    <span className="product_id">
-                      <h3>Product Id: {product._id}</h3>
-                    </span>
                     
                     <div className="product_color">
                       <h3>
                       Colors:                      
-                      </h3>
-                      <span>{product.color}</span>
+                      </h3>                     
+                      <span style={{'background': setColor(product.color)}}></span>
                     </div>
                     <span className="product_size">
-                      <h3>Product Size: {product.size ? product.size.join(', ') : 'NA'}</h3>
+                      <h3>Product Size: {product.size ? setProductSize(product.size) : 'NA'}</h3>
                       
                     </span>
                   </div>
@@ -84,7 +129,9 @@ const Cart = () => {
                    
                   </div>
                   <div className="product_price">Rs.{product.price*product.quantity}/-</div>
+                
                 </div>
+                <div className="removeIcon" onClick={(e)=>handleRemoveBtn(product)}><DeleteOutlineRoundedIcon/></div>
               </div>
             ))}
 

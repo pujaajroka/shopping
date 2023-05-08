@@ -9,6 +9,7 @@ import Slider from '../components/Slider/Slider';
 import Brand from '../components/Brands/Brands';
 import Title from '../components/Shared/Title';
 
+
 const Home = () => {
   return (
     <div>
@@ -21,7 +22,7 @@ const Home = () => {
        <Title title="Brands"/>
        <Brand/>
        <Newsletter/>
-       <Footer/>
+       <Footer/>     
     </div>
   )
 }

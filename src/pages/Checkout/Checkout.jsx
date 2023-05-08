@@ -14,14 +14,11 @@ const Checkout = () => {
     <div className="checkout_page">
       <Announcement />
       <Navbar />
-      <div className="checkout_container">
-       <div className="billing-details">
-       <div className="chkout_banner">
+      <div className="chkout_banner">
           <h1>Checkout</h1>
         </div>
-        <p className="sip_add">
-          Please enter your delivery address
-        </p>
+      <div className="checkout_container">
+       <div className="billing-details">   
 
         <div className="shipping_detail">
           <form id="sippin">

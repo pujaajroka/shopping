@@ -28,7 +28,7 @@ const ProductCard = (props) => {
             }
         }
         getProducts()
-    }, [location, products]);
+    }, [location]);
 
     const relatedProducts = (data, categories) => {
         const relatedProducts = [];        

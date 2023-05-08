@@ -71,7 +71,7 @@
     ],
     "paymentMode":[
       {
-        "name": "Credit Card/Debit Card",
+        "name": "Credit/Debit Card",
         "id":"CC",
         "active":true
       },
@@ -90,5 +90,65 @@
         "id":"COD",
         "active":false
       }
+    ],
+    "colors": [
+      {
+        "color": "red",
+        "code": "#ff0000"
+      },
+      {
+        "color": "green",
+        "code": "#40ff00"
+      },
+      {
+        "color": "blue",
+        "code": "#0080ff"
+      },
+      {
+        "color": "navy blue",
+        "code": "#4000ff"
+      },
+      {
+        "color": "pink",
+        "code": "#ff00bf"
+      },
+      {
+        "color": "black",
+        "code": "#000"
+      },
+      {
+        "color": "white",
+        "code": "#fff"
+      },
+      {
+        "color": "orange",
+        "code": "#ff8000"
+      },
+      {
+        "color": "brown",
+        "code": "#ff8000"
+      },
+      {
+        "color": "yellow",
+        "code": "#ffff00"
+      },
+      {
+        "color": "gray",
+        "code": "#555"
+      },
+      {
+        "color": "sky blue",
+        "code": "#00ffff"
+      },
+      {
+        "color": "maroon",
+        "code": "#c10000"
+      },
+      {
+        "color": "multi color",
+        "code": "repeating-linear-gradient(red, yellow 10%, green 20%);"
+      }
+
+      
     ]
   }

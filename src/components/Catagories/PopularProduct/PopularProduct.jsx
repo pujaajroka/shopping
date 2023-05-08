@@ -3,29 +3,48 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './PopularProduct.css';
 import { addProduct } from '../../../Redux/cartRedux';
 import { useDispatch } from 'react-redux';
-
-
+import Modal from "../../modal/Modal";
 
 const PopularProduct = (props) => {
   const popularData = props.popularProduct;
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch()
 
- const handleClick =()=>{
+ const handleClick =()=>{ 
+    handleModalShow();
+   }
+
+   const handleModalShow = () => {
+       setShowModal(true);
+   }
+
+   const showSizePopup = (type) => {
+      return type;
+   }
+
+   const handleAdd = (e) => {
     const quantity = 1;
     const color = popularData.color;
-    const size = popularData.size;
+    const size = e;  
     dispatch(
       addProduct({...popularData , quantity, color ,size })
-    )
-   
+    ) 
+    setShowModal(false);
+   }
+
+   const handleCancel= () => {
+      setShowModal(false);
+      showSizePopup(false)
+      return false;
    }
   
   return (
+    <>
     <div className="popular_prod_con">
       <div className="price-tag">{popularData.price.toFixed(2)}</div>
       <img className="popular_image" 
@@ -47,7 +66,10 @@ const PopularProduct = (props) => {
           <FavoriteBorderOutlined />
         </div>
       </div>
+   
     </div>
+    {showModal && <Modal type="cart" product={popularData} handleAdd={handleAdd} handleCancel={handleCancel} />} 
+    </>
   );
 };
 

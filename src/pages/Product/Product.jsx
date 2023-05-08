@@ -30,13 +30,13 @@ const Product = () => {
         setProductItm(res.data);
         window.scrollTo({top: 0, behavior: 'smooth'});
        
-      }catch{
+      } catch{
 
       }
     }
     
-    getPro()
-   },[id])
+    getPro();
+   },[])
  
    const handleQuantity =(type)=>{
     if(type === "dec"){

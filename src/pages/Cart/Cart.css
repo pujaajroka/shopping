@@ -63,6 +63,16 @@
 .cart_product_wrapper {
   display: flex;
   justify-content: space-between;
+  border-bottom: solid 1px #ddd;
+  /* border-radius: 10px; */
+  margin-right: 20px;
+  position: relative;
+}
+.removeIcon {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  cursor: pointer;
 }
 
 .product_detail {
@@ -109,6 +119,9 @@
   border-radius: 50%;
   background-color: rgb(207, 235, 242);
   display: flex;
+  border: solid 1px #ddd;
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .product_size {}
